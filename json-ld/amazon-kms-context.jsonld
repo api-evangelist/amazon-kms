@@ -1,0 +1,158 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "kms": "https://docs.aws.amazon.com/kms/latest/APIReference/",
+    "aws": "https://aws.amazon.com/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Key": {
+      "@id": "kms:API_DescribeKey",
+      "@context": {
+        "keyId": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "arn": {
+          "@id": "kms:keyArn",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "keyUsage": {
+          "@id": "kms:keyUsage",
+          "@type": "xsd:string"
+        },
+        "keySpec": {
+          "@id": "kms:keySpec",
+          "@type": "xsd:string"
+        },
+        "keyState": {
+          "@id": "kms:keyState",
+          "@type": "xsd:string"
+        },
+        "origin": {
+          "@id": "kms:keyOrigin",
+          "@type": "xsd:string"
+        },
+        "keyManager": {
+          "@id": "kms:keyManager",
+          "@type": "xsd:string"
+        },
+        "enabled": {
+          "@id": "kms:keyEnabled",
+          "@type": "xsd:boolean"
+        },
+        "creationDate": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "deletionDate": {
+          "@id": "kms:deletionDate",
+          "@type": "xsd:dateTime"
+        },
+        "multiRegion": {
+          "@id": "kms:multiRegion",
+          "@type": "xsd:boolean"
+        },
+        "encryptionAlgorithms": {
+          "@id": "kms:encryptionAlgorithms",
+          "@container": "@list"
+        },
+        "signingAlgorithms": {
+          "@id": "kms:signingAlgorithms",
+          "@container": "@list"
+        },
+        "tags": {
+          "@id": "schema:keywords",
+          "@container": "@list"
+        }
+      }
+    },
+
+    "Alias": {
+      "@id": "kms:API_ListAliases",
+      "@context": {
+        "aliasName": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "aliasArn": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "targetKeyId": {
+          "@id": "kms:targetKeyId",
+          "@type": "xsd:string"
+        },
+        "creationDate": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "lastUpdatedDate": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Grant": {
+      "@id": "kms:API_ListGrants",
+      "@context": {
+        "grantId": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "keyId": {
+          "@id": "kms:grantKeyId",
+          "@type": "xsd:string"
+        },
+        "granteePrincipal": {
+          "@id": "kms:granteePrincipal",
+          "@type": "xsd:string"
+        },
+        "retiringPrincipal": {
+          "@id": "kms:retiringPrincipal",
+          "@type": "xsd:string"
+        },
+        "operations": {
+          "@id": "kms:grantOperations",
+          "@container": "@list"
+        },
+        "constraints": {
+          "@id": "kms:grantConstraints",
+          "@type": "kms:GrantConstraints"
+        },
+        "issuingAccount": {
+          "@id": "kms:issuingAccount",
+          "@type": "xsd:string"
+        },
+        "creationDate": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "MultiRegionConfiguration": {
+      "@id": "kms:MultiRegionConfiguration",
+      "@context": {
+        "multiRegionKeyType": {
+          "@id": "kms:multiRegionKeyType",
+          "@type": "xsd:string"
+        },
+        "primaryKey": {
+          "@id": "kms:primaryKey",
+          "@type": "kms:MultiRegionKey"
+        },
+        "replicaKeys": {
+          "@id": "kms:replicaKeys",
+          "@container": "@list"
+        }
+      }
+    }
+  }
+}
