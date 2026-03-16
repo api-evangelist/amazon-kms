@@ -14,7 +14,7 @@ tags:
 - Data Protection
 - AWS
 created: '2024-01-15'
-modified: '2026-03-13'
+modified: '2026-03-16'
 apis:
 - name: Amazon KMS API
   description: The AWS Key Management Service API provides programmatic access to create and manage cryptographic keys, encrypt and decrypt data, generate data keys, and manage key policies and grants for controlling access to encryption operations.
