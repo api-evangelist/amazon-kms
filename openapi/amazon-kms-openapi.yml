@@ -55,7 +55,7 @@ paths:
   /:
     post:
       operationId: CreateKey
-      summary: Create a KMS key
+      summary: Amazon KMS Create a KMS key
       description: Creates a unique customer managed KMS key for cryptographic operations.
       tags:
         - Keys
@@ -105,7 +105,7 @@ paths:
   /encrypt:
     post:
       operationId: Encrypt
-      summary: Encrypt data
+      summary: Amazon KMS Encrypt data
       description: Encrypts plaintext into ciphertext using a KMS key.
       tags:
         - Encryption
@@ -134,7 +134,7 @@ paths:
   /decrypt:
     post:
       operationId: Decrypt
-      summary: Decrypt data
+      summary: Amazon KMS Decrypt data
       description: Decrypts ciphertext that was encrypted by a KMS key.
       tags:
         - Encryption
@@ -162,7 +162,7 @@ paths:
   /generate-data-key:
     post:
       operationId: GenerateDataKey
-      summary: Generate a data key
+      summary: Amazon KMS Generate a data key
       description: Returns a unique symmetric data key for client-side encryption.
       tags:
         - Encryption
@@ -172,7 +172,7 @@ paths:
   /keys:
     get:
       operationId: ListKeys
-      summary: List KMS keys
+      summary: Amazon KMS List KMS keys
       description: Gets a list of all KMS keys in the caller's account and region.
       tags:
         - Keys
@@ -182,7 +182,7 @@ paths:
   /grants:
     post:
       operationId: CreateGrant
-      summary: Create a grant
+      summary: Amazon KMS Create a grant
       description: Adds a grant to a KMS key to specify who can use the key and under what conditions.
       tags:
         - Grants
@@ -192,7 +192,7 @@ paths:
   /aliases:
     get:
       operationId: ListAliases
-      summary: List aliases
+      summary: Amazon KMS List aliases
       description: Gets a list of aliases in the caller's account and region.
       tags:
         - Aliases
