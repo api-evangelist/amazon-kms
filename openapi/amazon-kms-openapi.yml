@@ -41,16 +41,14 @@ servers:
 security:
   - sigv4: []
 tags:
-  - name: Keys
-    description: Operations for creating and managing cryptographic keys
+  - name: Aliases
+    description: Operations for managing key aliases
   - name: Encryption
     description: Operations for encrypting and decrypting data
   - name: Grants
     description: Operations for managing key grants
-  - name: Policies
-    description: Operations for managing key policies
-  - name: Aliases
-    description: Operations for managing key aliases
+  - name: Keys
+    description: Operations for creating and managing cryptographic keys
 paths:
   /:
     post:
