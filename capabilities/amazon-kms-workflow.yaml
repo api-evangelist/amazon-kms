@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Amazon KMS Workflow
+  description: Unified workflow capability for Amazon KMS combining resource management and operations.
+  tags:
+  - Amazon KMS
+  - AWS
+  - Workflow
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+capability:
+  consumes:
+  - import: kms
+    location: ./shared/kms.yaml
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: kms-api
+    description: REST API for Amazon KMS workflow.
+    resources: []
+  - type: mcp
+    port: 9090
+    namespace: kms-mcp
+    transport: http
+    description: MCP server for Amazon KMS.
+    tools:
+    - name: keys-create-key
+      description: Creates a unique customer managed KMS key in your AWS account and Region.
+      hints:
+        readOnly: false
+        idempotent: false
+      call: kms.createkey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: keys-list-keys
+      description: Gets a list of all KMS keys in the caller's AWS account and Region.
+      hints:
+        readOnly: true
+        idempotent: true
+      call: kms.listkeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: keys-describe-key
+      description: Provides detailed information about a KMS key.
+      hints:
+        readOnly: true
+        idempotent: true
+      call: kms.describekey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: crypto-encrypt
+      description: Encrypts plaintext of up to 4,096 bytes using a KMS key.
+      hints:
+        readOnly: false
+        idempotent: false
+      call: kms.encrypt
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: crypto-decrypt
+      description: Decrypts ciphertext that was encrypted by a KMS key.
+      hints:
+        readOnly: false
+        idempotent: false
+      call: kms.decrypt
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: crypto-generate-data-key
+      description: Returns a unique symmetric data key for use outside of KMS.
+      hints:
+        readOnly: false
+        idempotent: false
+      call: kms.generatedatakey
+      outputParameters:
+      - type: object
+        mapping: $.

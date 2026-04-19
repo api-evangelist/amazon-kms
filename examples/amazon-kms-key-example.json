@@ -1,0 +1,12 @@
+{
+  "KeyId": "mrk-1234abcd12ab34cd56ef1234567890ab",
+  "KeyArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "KeyState": "Enabled",
+  "KeyUsage": "ENCRYPT_DECRYPT",
+  "KeySpec": "SYMMETRIC_DEFAULT",
+  "Description": "example-value",
+  "CreationDate": "2025-03-15T14:30:00Z",
+  "DeletionDate": "2025-03-15T14:30:00Z",
+  "Enabled": true,
+  "MultiRegion": true
+}

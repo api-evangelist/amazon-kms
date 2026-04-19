@@ -1,33 +1,71 @@
-# Amazon KMS
-
+# Amazon KMS (amazon-kms)
 AWS Key Management Service (KMS) is a managed service that makes it easy to create and control the cryptographic keys used to protect your data, integrated with other AWS services to simplify encryption of data stored and managed in those services.
+
+**URL:** [https://aws.amazon.com/kms/](https://aws.amazon.com/kms/)
+
+**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+
+## Tags:
+
+ - AWS, Security, Encryption, Key Management, Cryptography
+
+## Timestamps
+
+- **Created:** 2024-01-15
+- **Modified:** 2026-04-19
 
 ## APIs
 
-- **Amazon KMS API** - The AWS Key Management Service API provides programmatic access to create and manage cryptographic keys, encrypt and decrypt data, generate data keys, and manage key policies and grants for controlling access to encryption operations.
+### Amazon KMS API
 
-## Resources
+**Human URL:** [https://aws.amazon.com/kms/](https://aws.amazon.com/kms/)
 
-### Documentation
-
-- [Documentation](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)
-- [Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)
-- [API Reference](https://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html)
-- [CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/kms/)
-- [Getting Started](https://aws.amazon.com/kms/getting-started/)
-
-### Specifications
+#### Properties
 
 - [OpenAPI](openapi/amazon-kms-openapi.yml)
-- [JSON Schema](json-schema/amazon-kms-schema.json)
-- [JSON-LD](json-ld/amazon-kms-context.jsonld)
+- [JSONSchema](json-schema/amazon-kms-key-schema.json)
+- [JSONLD](json-ld/amazon-kms-context.jsonld)
 
-### General
+## Artifacts
 
-- [Pricing](https://aws.amazon.com/kms/pricing/)
-- [Features](https://aws.amazon.com/kms/features/)
-- [FAQ](https://aws.amazon.com/kms/faqs/)
+### OpenAPI
+
+- [Amazon KMS API](openapi/amazon-kms-openapi.yml)
+
+### JSON Schema
+
+- [Key](json-schema/amazon-kms-key-schema.json)
+
+### JSON Structure
+
+- [Key](json-structure/amazon-kms-key-structure.json)
+
+### JSON-LD
+
+- [Amazon KMS Context](json-ld/amazon-kms-context.jsonld)
+
+### Examples
+
+- [Key Example](examples/amazon-kms-key-example.json)
+
+## Capabilities
+
+### Workflow Capabilities
+
+| Workflow | APIs Combined | Tools | Persona |
+|----------|--------------|-------|---------|
+| [Amazon KMS Workflow](capabilities/amazon-kms-workflow.yaml) | KMS | 9 | Developer, Security Engineer, Administrator |
+
+## Vocabulary
+
+- [Amazon KMS Vocabulary](vocabulary/amazon-kms-vocabulary.yaml)
+
+## Rules
+
+- [Amazon KMS Spectral Rules](rules/amazon-kms-spectral-rules.yml)
 
 ## Maintainers
 
-- Kin Lane - kin@apievangelist.com
+**FN:** Kin Lane
+
+**Email:** kin@apievangelist.com

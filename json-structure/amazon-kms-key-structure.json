@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-kms/refs/heads/main/json-structure/amazon-kms-key-structure.json",
+  "name": "Key",
+  "description": "An AWS KMS key (formerly customer master key) used for cryptographic operations.",
+  "type": "object",
+  "properties": {
+    "KeyId": {
+      "type": "string",
+      "description": "The globally unique identifier for the KMS key.",
+      "example": "mrk-1234abcd12ab34cd56ef1234567890ab"
+    },
+    "KeyArn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) of the KMS key."
+    },
+    "KeyState": {
+      "type": "string",
+      "description": "The current status of the KMS key.",
+      "example": "Enabled",
+      "enum": [
+        "Creating",
+        "Enabled",
+        "Disabled",
+        "PendingDeletion",
+        "PendingImport",
+        "PendingReplicaDeletion",
+        "Unavailable",
+        "Updating"
+      ]
+    },
+    "KeyUsage": {
+      "type": "string",
+      "description": "The cryptographic operations for which the KMS key can be used.",
+      "example": "ENCRYPT_DECRYPT",
+      "enum": [
+        "SIGN_VERIFY",
+        "ENCRYPT_DECRYPT",
+        "GENERATE_VERIFY_MAC"
+      ]
+    },
+    "KeySpec": {
+      "type": "string",
+      "description": "Describes the type of key material in the KMS key.",
+      "example": "SYMMETRIC_DEFAULT"
+    },
+    "Description": {
+      "type": "string",
+      "description": "The description of the KMS key."
+    },
+    "CreationDate": {
+      "type": "datetime",
+      "description": "The date and time when the KMS key was created."
+    },
+    "DeletionDate": {
+      "type": "datetime",
+      "description": "The date and time after which KMS deletes this KMS key."
+    },
+    "Enabled": {
+      "type": "boolean",
+      "description": "Specifies whether the KMS key is enabled."
+    },
+    "MultiRegion": {
+      "type": "boolean",
+      "description": "Indicates whether the KMS key is a multi-Region key."
+    }
+  }
+}

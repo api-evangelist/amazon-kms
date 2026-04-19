@@ -1,0 +1,94 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon KMS
+  description: Unified vocabulary for Amazon KMS API operations and capability workflows.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - namespace: kms
+    version: '2024-01-01'
+    status: active
+  resources:
+  - name: keys
+    api: kms
+    actions:
+    - create key
+    - list keys
+    - describe key
+    - enable key
+    - disable key
+    - schedule key deletion
+  - name: crypto
+    api: kms
+    actions:
+    - encrypt
+    - decrypt
+    - generate data key
+    - sign
+    - verify
+  actions:
+  - name: create
+    http_method: POST
+    pattern: write
+  - name: list
+    http_method: GET
+    pattern: read
+  - name: describe
+    http_method: GET
+    pattern: read
+  - name: update
+    http_method: PUT
+    pattern: write
+  - name: delete
+    http_method: DELETE
+    pattern: destructive
+  authentication:
+    schemes:
+    - type: apikey
+      header: Authorization
+      description: AWS Signature Version 4
+capability:
+  workflows:
+  - name: Amazon KMS Workflow
+    file: capabilities/amazon-kms-workflow.yaml
+    description: Unified workflow for Amazon KMS resource management
+    apis_combined:
+    - kms
+    tool_count: 6
+    personas:
+    - Developer
+    - Administrator
+  personas:
+  - id: developer
+    name: Developer
+    description: Integrates API into applications
+  - id: administrator
+    name: Administrator
+    description: Manages resources and configurations
+crossReference:
+- resource: keys
+  operations:
+  - CreateKey
+  - ListKeys
+  - DescribeKey
+  - EnableKey
+  - DisableKey
+  - ScheduleKeyDeletion
+  workflows:
+  - Amazon KMS Workflow
+  personas:
+  - Developer
+  - Administrator
+- resource: crypto
+  operations:
+  - Encrypt
+  - Decrypt
+  - GenerateDataKey
+  - Sign
+  - Verify
+  workflows:
+  - Amazon KMS Workflow
+  personas:
+  - Developer
+  - Administrator
