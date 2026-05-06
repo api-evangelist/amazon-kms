@@ -1,4 +1,4 @@
-naftiko: 1.0.0-alpha1
+naftiko: 1.0.0-alpha2
 info:
   label: Amazon KMS Workflow
   description: Unified workflow capability for Amazon KMS combining resource management and operations.
@@ -7,7 +7,7 @@ info:
   - AWS
   - Workflow
   created: '2026-04-19'
-  modified: '2026-04-19'
+  modified: '2026-05-06'
 binds:
 - namespace: env
   keys:
@@ -15,8 +15,72 @@ binds:
     AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
 capability:
   consumes:
-  - import: kms
-    location: ./shared/kms.yaml
+  - type: http
+    namespace: kms
+    baseUri: https://kms.us-east-1.amazonaws.com
+    description: Amazon KMS service.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{AWS_ACCESS_KEY_ID}}'
+      placement: header
+    resources:
+    - name: keys
+      path: /keys
+      description: KMS cryptographic key management
+      operations:
+      - name: createkey
+        method: POST
+        description: Creates a unique customer managed KMS key in your AWS account and Region.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: listkeys
+        method: GET
+        description: Gets a list of all KMS keys in the caller's AWS account and Region.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: describekey
+        method: GET
+        description: Provides detailed information about a KMS key.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: crypto
+      path: /keys/{KeyId}
+      description: Encryption, decryption, and signing operations
+      operations:
+      - name: encrypt
+        method: POST
+        description: Encrypts plaintext of up to 4,096 bytes using a KMS key.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: decrypt
+        method: POST
+        description: Decrypts ciphertext that was encrypted by a KMS key.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: generatedatakey
+        method: POST
+        description: Returns a unique symmetric data key for use outside of KMS.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
   - type: rest
     port: 8080
