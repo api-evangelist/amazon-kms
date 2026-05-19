@@ -1,0 +1,265 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon KMS API — Keys
+  description: 'Amazon KMS API — Keys. 6 operations. Lead operation: Amazon KMS Create Key. Self-contained Naftiko capability
+    covering one Amazon Kms business surface.'
+  tags:
+  - Amazon Kms
+  - Keys
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_KMS_API_KEY: AMAZON_KMS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-kms-keys
+    baseUri: https://kms.us-east-1.amazonaws.com
+    description: Amazon KMS API — Keys business capability. Self-contained, no shared references.
+    resources:
+    - name: keys
+      path: /keys
+      operations:
+      - name: createkey
+        method: POST
+        description: Amazon KMS Create Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: listkeys
+        method: GET
+        description: Amazon KMS List Keys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: keys-KeyId
+      path: /keys/{KeyId}
+      operations:
+      - name: describekey
+        method: GET
+        description: Amazon KMS Describe Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: KeyId
+          in: path
+          type: string
+          description: Identifies the KMS key to describe.
+          required: true
+    - name: keys-KeyId-deletion
+      path: /keys/{KeyId}/deletion
+      operations:
+      - name: schedulekeydeletion
+        method: POST
+        description: Amazon KMS Schedule Key Deletion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: KeyId
+          in: path
+          type: string
+          description: Identifies the KMS key.
+          required: true
+    - name: keys-KeyId-disable
+      path: /keys/{KeyId}/disable
+      operations:
+      - name: disablekey
+        method: POST
+        description: Amazon KMS Disable Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: KeyId
+          in: path
+          type: string
+          description: Identifies the KMS key.
+          required: true
+    - name: keys-KeyId-enable
+      path: /keys/{KeyId}/enable
+      operations:
+      - name: enablekey
+        method: POST
+        description: Amazon KMS Enable Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: KeyId
+          in: path
+          type: string
+          description: Identifies the KMS key.
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_KMS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-kms-keys-rest
+    port: 8080
+    description: REST adapter for Amazon KMS API — Keys. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/keys
+      name: keys
+      description: REST surface for keys.
+      operations:
+      - method: POST
+        name: createkey
+        description: Amazon KMS Create Key
+        call: amazon-kms-keys.createkey
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: listkeys
+        description: Amazon KMS List Keys
+        call: amazon-kms-keys.listkeys
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/keys/{keyid}
+      name: keys-keyid
+      description: REST surface for keys-KeyId.
+      operations:
+      - method: GET
+        name: describekey
+        description: Amazon KMS Describe Key
+        call: amazon-kms-keys.describekey
+        with:
+          KeyId: rest.KeyId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/keys/{keyid}/deletion
+      name: keys-keyid-deletion
+      description: REST surface for keys-KeyId-deletion.
+      operations:
+      - method: POST
+        name: schedulekeydeletion
+        description: Amazon KMS Schedule Key Deletion
+        call: amazon-kms-keys.schedulekeydeletion
+        with:
+          KeyId: rest.KeyId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/keys/{keyid}/disable
+      name: keys-keyid-disable
+      description: REST surface for keys-KeyId-disable.
+      operations:
+      - method: POST
+        name: disablekey
+        description: Amazon KMS Disable Key
+        call: amazon-kms-keys.disablekey
+        with:
+          KeyId: rest.KeyId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/keys/{keyid}/enable
+      name: keys-keyid-enable
+      description: REST surface for keys-KeyId-enable.
+      operations:
+      - method: POST
+        name: enablekey
+        description: Amazon KMS Enable Key
+        call: amazon-kms-keys.enablekey
+        with:
+          KeyId: rest.KeyId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-kms-keys-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon KMS API — Keys. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: amazon-kms-create-key
+      description: Amazon KMS Create Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kms-keys.createkey
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-kms-list-keys
+      description: Amazon KMS List Keys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-kms-keys.listkeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-kms-describe-key
+      description: Amazon KMS Describe Key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-kms-keys.describekey
+      with:
+        KeyId: tools.KeyId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-kms-schedule-key-deletion
+      description: Amazon KMS Schedule Key Deletion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kms-keys.schedulekeydeletion
+      with:
+        KeyId: tools.KeyId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-kms-disable-key
+      description: Amazon KMS Disable Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kms-keys.disablekey
+      with:
+        KeyId: tools.KeyId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-kms-enable-key
+      description: Amazon KMS Enable Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kms-keys.enablekey
+      with:
+        KeyId: tools.KeyId
+      outputParameters:
+      - type: object
+        mapping: $.
