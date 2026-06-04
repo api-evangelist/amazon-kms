@@ -1,0 +1,103 @@
+arazzo: 1.0.1
+info:
+  title: Amazon KMS Provision Key and Encrypt
+  summary: Create a KMS key, enable it, and immediately encrypt a payload with it.
+  description: >-
+    Stands up a brand-new KMS key ready for use in a single pass. The workflow
+    creates a customer managed key, explicitly enables it to guarantee it is in
+    an active state, and then encrypts a plaintext payload with the new key to
+    confirm it is usable end to end. The generated KeyId flows from creation
+    through enable and encrypt. Each step spells out its request inline, including
+    the AWS JSON protocol X-Amz-Target header, so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: kmsApi
+  url: ../openapi/amazon-kms-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-key-and-encrypt
+  summary: Create a key, enable it, and encrypt a payload to confirm it works.
+  description: >-
+    Creates a customer managed KMS key, enables it, and encrypts a plaintext
+    payload with the new key to verify the key is immediately usable.
+  inputs:
+    type: object
+    required:
+    - Description
+    - Plaintext
+    properties:
+      Description:
+        type: string
+        description: A friendly description for the new KMS key.
+      KeyUsage:
+        type: string
+        description: The cryptographic operations the key supports (e.g. ENCRYPT_DECRYPT).
+      Plaintext:
+        type: string
+        description: Base64-encoded plaintext (up to 4,096 bytes) to encrypt.
+  steps:
+  - stepId: createKey
+    description: >-
+      Create a new customer managed KMS key with the supplied description and
+      usage.
+    operationId: CreateKey
+    parameters:
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.CreateKey
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        Description: $inputs.Description
+        KeyUsage: $inputs.KeyUsage
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      keyId: $response.body#/KeyMetadata/KeyId
+      keyArn: $response.body#/KeyMetadata/Arn
+  - stepId: enableKey
+    description: >-
+      Enable the newly created KMS key to guarantee it is in an active state
+      before use.
+    operationId: EnableKey
+    parameters:
+    - name: KeyId
+      in: path
+      value: $steps.createKey.outputs.keyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.EnableKey
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $steps.createKey.outputs.keyId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      enableStatus: $statusCode
+  - stepId: encrypt
+    description: >-
+      Encrypt the supplied plaintext payload with the newly provisioned key to
+      confirm it is usable end to end.
+    operationId: Encrypt
+    parameters:
+    - name: KeyId
+      in: path
+      value: $steps.createKey.outputs.keyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.Encrypt
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $steps.createKey.outputs.keyId
+        Plaintext: $inputs.Plaintext
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      ciphertextBlob: $response.body#/CiphertextBlob
+  outputs:
+    keyId: $steps.createKey.outputs.keyId
+    keyArn: $steps.createKey.outputs.keyArn
+    ciphertextBlob: $steps.encrypt.outputs.ciphertextBlob

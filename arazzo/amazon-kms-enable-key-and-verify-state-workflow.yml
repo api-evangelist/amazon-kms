@@ -1,0 +1,82 @@
+arazzo: 1.0.1
+info:
+  title: Amazon KMS Enable Key and Verify State
+  summary: Enable a disabled KMS key and confirm it is back in the Enabled state.
+  description: >-
+    Reactivates a previously disabled KMS key. The workflow sets the key state to
+    enabled and then describes the key to confirm the state transition took
+    effect, branching on whether the reported KeyState is Enabled. The KeyId
+    flows from input through both steps. Each step spells out its request inline,
+    including the AWS JSON protocol X-Amz-Target header, so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: kmsApi
+  url: ../openapi/amazon-kms-openapi.yml
+  type: openapi
+workflows:
+- workflowId: enable-key-and-verify-state
+  summary: Enable a key then describe it to confirm the Enabled state.
+  description: >-
+    Enables the target KMS key and reads its metadata back to verify the key
+    state is now Enabled, branching to an explicit end when confirmed.
+  inputs:
+    type: object
+    required:
+    - KeyId
+    properties:
+      KeyId:
+        type: string
+        description: Identifies the KMS key to enable and verify.
+  steps:
+  - stepId: enableKey
+    description: >-
+      Set the key state of the KMS key to enabled so it can be used in
+      cryptographic operations again.
+    operationId: EnableKey
+    parameters:
+    - name: KeyId
+      in: path
+      value: $inputs.KeyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.EnableKey
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $inputs.KeyId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      enableStatus: $statusCode
+  - stepId: verifyState
+    description: >-
+      Describe the KMS key to confirm the enable operation moved it into the
+      Enabled state.
+    operationId: DescribeKey
+    parameters:
+    - name: KeyId
+      in: path
+      value: $inputs.KeyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.DescribeKey
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $inputs.KeyId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      keyState: $response.body#/KeyMetadata/KeyState
+      enabled: $response.body#/KeyMetadata/Enabled
+    onSuccess:
+    - name: confirmedEnabled
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.KeyMetadata.KeyState == "Enabled"
+        type: jsonpath
+  outputs:
+    keyState: $steps.verifyState.outputs.keyState
+    enabled: $steps.verifyState.outputs.enabled

@@ -1,0 +1,105 @@
+arazzo: 1.0.1
+info:
+  title: Amazon KMS Envelope Encrypt and Decrypt
+  summary: Generate a data key, then round-trip ciphertext through encrypt and decrypt.
+  description: >-
+    Demonstrates the canonical KMS envelope-encryption pattern. The workflow
+    generates a symmetric data key under a KMS key, encrypts a small plaintext
+    payload directly with the KMS key, and then decrypts the resulting ciphertext
+    to prove the round trip succeeds. The data key, ciphertext blob, and plaintext
+    are chained between steps. Each step spells out its request inline, including
+    the AWS JSON protocol X-Amz-Target header, so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: kmsApi
+  url: ../openapi/amazon-kms-openapi.yml
+  type: openapi
+workflows:
+- workflowId: envelope-encrypt-decrypt
+  summary: Generate a data key, encrypt plaintext, then decrypt the ciphertext.
+  description: >-
+    Generates a data key for client-side use, encrypts a plaintext payload with
+    the KMS key, and decrypts the returned ciphertext to verify the full
+    envelope cycle.
+  inputs:
+    type: object
+    required:
+    - KeyId
+    - Plaintext
+    properties:
+      KeyId:
+        type: string
+        description: Identifies the KMS key used for the cryptographic operations.
+      Plaintext:
+        type: string
+        description: Base64-encoded plaintext (up to 4,096 bytes) to encrypt.
+      KeySpec:
+        type: string
+        description: The length of the data key to generate (e.g. AES_256).
+  steps:
+  - stepId: generateDataKey
+    description: >-
+      Generate a unique symmetric data key under the KMS key for client-side
+      encryption, returning both the plaintext and encrypted forms.
+    operationId: GenerateDataKey
+    parameters:
+    - name: KeyId
+      in: path
+      value: $inputs.KeyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.GenerateDataKey
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $inputs.KeyId
+        KeySpec: $inputs.KeySpec
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      dataKeyCiphertext: $response.body#/CiphertextBlob
+      dataKeyPlaintext: $response.body#/Plaintext
+  - stepId: encrypt
+    description: >-
+      Encrypt the supplied plaintext payload directly with the KMS key and
+      capture the resulting ciphertext blob.
+    operationId: Encrypt
+    parameters:
+    - name: KeyId
+      in: path
+      value: $inputs.KeyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.Encrypt
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $inputs.KeyId
+        Plaintext: $inputs.Plaintext
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      ciphertextBlob: $response.body#/CiphertextBlob
+  - stepId: decrypt
+    description: >-
+      Decrypt the ciphertext produced by the encrypt step to verify the round
+      trip returns the original plaintext.
+    operationId: Decrypt
+    parameters:
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.Decrypt
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $inputs.KeyId
+        CiphertextBlob: $steps.encrypt.outputs.ciphertextBlob
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      decryptedPlaintext: $response.body#/Plaintext
+  outputs:
+    dataKeyCiphertext: $steps.generateDataKey.outputs.dataKeyCiphertext
+    ciphertextBlob: $steps.encrypt.outputs.ciphertextBlob
+    decryptedPlaintext: $steps.decrypt.outputs.decryptedPlaintext

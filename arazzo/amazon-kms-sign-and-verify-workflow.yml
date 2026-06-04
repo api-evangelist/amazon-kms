@@ -1,0 +1,94 @@
+arazzo: 1.0.1
+info:
+  title: Amazon KMS Sign and Verify
+  summary: Sign a message with an asymmetric KMS key, then verify the signature.
+  description: >-
+    Exercises the asymmetric signing path of KMS. The workflow creates a digital
+    signature for a message using an asymmetric KMS key and then verifies that
+    signature against the same message and signing algorithm to confirm
+    authenticity. The signature blob from the sign step is chained into the
+    verify step. Each step spells out its request inline, including the AWS JSON
+    protocol X-Amz-Target header, so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: kmsApi
+  url: ../openapi/amazon-kms-openapi.yml
+  type: openapi
+workflows:
+- workflowId: sign-and-verify
+  summary: Sign a message with an asymmetric key then verify the resulting signature.
+  description: >-
+    Produces a digital signature for the supplied message using an asymmetric
+    KMS key and verifies that signature to confirm it is valid for the message
+    and algorithm.
+  inputs:
+    type: object
+    required:
+    - KeyId
+    - Message
+    - SigningAlgorithm
+    properties:
+      KeyId:
+        type: string
+        description: Identifies the asymmetric KMS key used to sign and verify.
+      Message:
+        type: string
+        description: Base64-encoded message (or digest) to sign.
+      MessageType:
+        type: string
+        description: Whether Message is RAW data or a DIGEST.
+      SigningAlgorithm:
+        type: string
+        description: The signing algorithm to use (e.g. RSASSA_PSS_SHA_256).
+  steps:
+  - stepId: sign
+    description: >-
+      Create a digital signature for the supplied message using the asymmetric
+      KMS key and chosen signing algorithm.
+    operationId: Sign
+    parameters:
+    - name: KeyId
+      in: path
+      value: $inputs.KeyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.Sign
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $inputs.KeyId
+        Message: $inputs.Message
+        MessageType: $inputs.MessageType
+        SigningAlgorithm: $inputs.SigningAlgorithm
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      signature: $response.body#/Signature
+  - stepId: verify
+    description: >-
+      Verify the signature produced by the sign step against the same message
+      and signing algorithm to confirm it is valid.
+    operationId: Verify
+    parameters:
+    - name: KeyId
+      in: path
+      value: $inputs.KeyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.Verify
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $inputs.KeyId
+        Message: $inputs.Message
+        MessageType: $inputs.MessageType
+        Signature: $steps.sign.outputs.signature
+        SigningAlgorithm: $inputs.SigningAlgorithm
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      signatureValid: $response.body#/SignatureValid
+  outputs:
+    signature: $steps.sign.outputs.signature
+    signatureValid: $steps.verify.outputs.signatureValid

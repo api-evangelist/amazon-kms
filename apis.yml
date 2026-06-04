@@ -56,6 +56,33 @@ apis:
   - type: NaftikoCapability
     url: capabilities/amazon-kms-keys.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/amazon-kms-create-key-and-describe-workflow.yml
+    name: Amazon KMS Create Key and Describe
+    summary: Create a new customer managed KMS key and read back its full metadata.
+  - url: arazzo/amazon-kms-data-key-generate-and-decrypt-workflow.yml
+    name: Amazon KMS Generate and Recover Data Key
+    summary: Generate a data key, then decrypt its encrypted form to recover the plaintext key.
+  - url: arazzo/amazon-kms-disable-and-schedule-deletion-workflow.yml
+    name: Amazon KMS Disable and Schedule Key Deletion
+    summary: Disable a KMS key and then schedule it for deletion after a waiting period.
+  - url: arazzo/amazon-kms-enable-key-and-verify-state-workflow.yml
+    name: Amazon KMS Enable Key and Verify State
+    summary: Enable a disabled KMS key and confirm it is back in the Enabled state.
+  - url: arazzo/amazon-kms-envelope-encrypt-decrypt-workflow.yml
+    name: Amazon KMS Envelope Encrypt and Decrypt
+    summary: Generate a data key, then round-trip ciphertext through encrypt and decrypt.
+  - url: arazzo/amazon-kms-list-and-describe-keys-workflow.yml
+    name: Amazon KMS List and Describe Keys
+    summary: List the KMS keys in the account and describe the first one in detail.
+  - url: arazzo/amazon-kms-provision-key-and-encrypt-workflow.yml
+    name: Amazon KMS Provision Key and Encrypt
+    summary: Create a KMS key, enable it, and immediately encrypt a payload with it.
+  - url: arazzo/amazon-kms-sign-and-verify-workflow.yml
+    name: Amazon KMS Sign and Verify
+    summary: Sign a message with an asymmetric KMS key, then verify the signature.
 - type: Blog
   url: https://aws.amazon.com/blogs/security/category/security-identity-compliance/aws-key-management-service/
 - type: Support

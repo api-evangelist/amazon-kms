@@ -1,0 +1,84 @@
+arazzo: 1.0.1
+info:
+  title: Amazon KMS Create Key and Describe
+  summary: Create a new customer managed KMS key and read back its full metadata.
+  description: >-
+    Provisions a new customer managed KMS key in the caller's account and Region
+    and then describes the freshly created key to confirm its state, ARN, and
+    usage. The KeyId returned from creation is chained into the describe call so
+    the workflow can verify the key landed in the expected state before any other
+    automation depends on it. Each step spells out its request inline, including
+    the AWS JSON protocol X-Amz-Target header, so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: kmsApi
+  url: ../openapi/amazon-kms-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-key-and-describe
+  summary: Create a KMS key then describe it to confirm its state.
+  description: >-
+    Creates a customer managed KMS key with the supplied description and usage,
+    captures the generated KeyId, and describes the key to read back its
+    metadata.
+  inputs:
+    type: object
+    required:
+    - Description
+    properties:
+      Description:
+        type: string
+        description: A friendly description for the new KMS key.
+      KeyUsage:
+        type: string
+        description: The cryptographic operations the key supports (e.g. ENCRYPT_DECRYPT).
+      KeySpec:
+        type: string
+        description: The type of key material to create (e.g. SYMMETRIC_DEFAULT).
+  steps:
+  - stepId: createKey
+    description: >-
+      Create a new customer managed KMS key in the caller's account and Region
+      using the supplied description and key usage.
+    operationId: CreateKey
+    parameters:
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.CreateKey
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        Description: $inputs.Description
+        KeyUsage: $inputs.KeyUsage
+        KeySpec: $inputs.KeySpec
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      keyId: $response.body#/KeyMetadata/KeyId
+      keyArn: $response.body#/KeyMetadata/Arn
+  - stepId: describeKey
+    description: >-
+      Describe the newly created KMS key to confirm its state, ARN, and usage
+      before downstream automation depends on it.
+    operationId: DescribeKey
+    parameters:
+    - name: KeyId
+      in: path
+      value: $steps.createKey.outputs.keyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.DescribeKey
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $steps.createKey.outputs.keyId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      keyState: $response.body#/KeyMetadata/KeyState
+      keyUsage: $response.body#/KeyMetadata/KeyUsage
+  outputs:
+    keyId: $steps.createKey.outputs.keyId
+    keyArn: $steps.createKey.outputs.keyArn
+    keyState: $steps.describeKey.outputs.keyState

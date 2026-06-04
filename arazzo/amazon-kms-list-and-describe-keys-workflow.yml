@@ -1,0 +1,73 @@
+arazzo: 1.0.1
+info:
+  title: Amazon KMS List and Describe Keys
+  summary: List the KMS keys in the account and describe the first one in detail.
+  description: >-
+    Provides a quick inventory-then-inspect pass over the account's KMS keys. The
+    workflow lists all KMS keys in the caller's account and Region, captures the
+    identifier of the first key returned, and describes that key to surface its
+    full metadata. The KeyId is chained from the list response into the describe
+    call. Each step spells out its request inline, including the AWS JSON protocol
+    X-Amz-Target header, so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: kmsApi
+  url: ../openapi/amazon-kms-openapi.yml
+  type: openapi
+workflows:
+- workflowId: list-and-describe-keys
+  summary: List account KMS keys then describe the first returned key.
+  description: >-
+    Retrieves the list of KMS keys in the account, takes the first key's
+    identifier, and describes that key to read its state, usage, and ARN.
+  inputs:
+    type: object
+    properties:
+      Limit:
+        type: integer
+        description: The maximum number of keys to return in the list.
+  steps:
+  - stepId: listKeys
+    description: >-
+      List all KMS keys in the caller's account and Region, returning their key
+      identifiers and ARNs.
+    operationId: ListKeys
+    parameters:
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.ListKeys
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        Limit: $inputs.Limit
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstKeyId: $response.body#/Keys/0/KeyId
+      truncated: $response.body#/Truncated
+  - stepId: describeFirstKey
+    description: >-
+      Describe the first key from the list to surface its state, usage, and ARN.
+    operationId: DescribeKey
+    parameters:
+    - name: KeyId
+      in: path
+      value: $steps.listKeys.outputs.firstKeyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.DescribeKey
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $steps.listKeys.outputs.firstKeyId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      keyState: $response.body#/KeyMetadata/KeyState
+      keyArn: $response.body#/KeyMetadata/Arn
+      keyUsage: $response.body#/KeyMetadata/KeyUsage
+  outputs:
+    firstKeyId: $steps.listKeys.outputs.firstKeyId
+    keyState: $steps.describeFirstKey.outputs.keyState
+    keyArn: $steps.describeFirstKey.outputs.keyArn

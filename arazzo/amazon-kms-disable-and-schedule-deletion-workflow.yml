@@ -1,0 +1,82 @@
+arazzo: 1.0.1
+info:
+  title: Amazon KMS Disable and Schedule Key Deletion
+  summary: Disable a KMS key and then schedule it for deletion after a waiting period.
+  description: >-
+    Safely retires a KMS key. The workflow first disables the key so it can no
+    longer be used in cryptographic operations, then schedules its deletion with
+    a pending-window waiting period, returning the planned deletion date. The
+    KeyId flows from input through both steps. Each step spells out its request
+    inline, including the AWS JSON protocol X-Amz-Target header, so the flow can
+    be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: kmsApi
+  url: ../openapi/amazon-kms-openapi.yml
+  type: openapi
+workflows:
+- workflowId: disable-and-schedule-deletion
+  summary: Disable a key then schedule it for deletion after a waiting period.
+  description: >-
+    Disables the target KMS key to stop further use and schedules its deletion
+    with the supplied pending-window in days, capturing the resulting deletion
+    date.
+  inputs:
+    type: object
+    required:
+    - KeyId
+    properties:
+      KeyId:
+        type: string
+        description: Identifies the KMS key to disable and schedule for deletion.
+      PendingWindowInDays:
+        type: integer
+        description: The waiting period in days before the key is deleted (7-30).
+  steps:
+  - stepId: disableKey
+    description: >-
+      Disable the KMS key so it can no longer be used in cryptographic
+      operations before scheduling its deletion.
+    operationId: DisableKey
+    parameters:
+    - name: KeyId
+      in: path
+      value: $inputs.KeyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.DisableKey
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $inputs.KeyId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      disableStatus: $statusCode
+  - stepId: scheduleDeletion
+    description: >-
+      Schedule the disabled KMS key for deletion after the supplied waiting
+      period and capture the planned deletion date.
+    operationId: ScheduleKeyDeletion
+    parameters:
+    - name: KeyId
+      in: path
+      value: $inputs.KeyId
+    - name: X-Amz-Target
+      in: header
+      value: TrentService.ScheduleKeyDeletion
+    requestBody:
+      contentType: application/x-amz-json-1.1
+      payload:
+        KeyId: $inputs.KeyId
+        PendingWindowInDays: $inputs.PendingWindowInDays
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      keyId: $response.body#/KeyId
+      deletionDate: $response.body#/DeletionDate
+      keyState: $response.body#/KeyState
+  outputs:
+    keyId: $steps.scheduleDeletion.outputs.keyId
+    deletionDate: $steps.scheduleDeletion.outputs.deletionDate
+    keyState: $steps.scheduleDeletion.outputs.keyState
