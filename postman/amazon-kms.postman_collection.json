@@ -1,0 +1,2167 @@
+{
+  "info": {
+    "_postman_id": "48904b3d-5c82-468d-ad6b-45570d398578",
+    "name": "Amazon KMS API",
+    "description": "The Amazon KMS API provides programmatic access to manage KMS resources.\n\nContact Support:\n Name: AWS Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:04:33.000Z",
+    "updatedAt": "2026-06-05T15:04:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-48904b3d-5c82-468d-ad6b-45570d398578"
+  },
+  "item": [
+    {
+      "name": "keys",
+      "item": [
+        {
+          "name": "{KeyId}",
+          "item": [
+            {
+              "name": "enable",
+              "item": [
+                {
+                  "name": "Amazon KMS Enable Key",
+                  "id": "35eff47d-aa6f-4a9a-88ab-bb8f7ba42e49",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId/enable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId",
+                        "enable"
+                      ],
+                      "variable": [
+                        {
+                          "id": "cc42fb56-a19f-436f-aba9-da969fb266b3",
+                          "key": "KeyId",
+                          "value": "<string>",
+                          "description": "(Required) Identifies the KMS key."
+                        }
+                      ]
+                    },
+                    "description": "Sets the key state of a KMS key to enabled."
+                  },
+                  "response": [
+                    {
+                      "id": "69f5b666-553b-43ca-b16f-af0bc85d83b0",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/enable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "enable"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-69f5b666-553b-43ca-b16f-af0bc85d83b0"
+                    },
+                    {
+                      "id": "4903ce03-38d8-4750-a2f1-088773e52d1b",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/enable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "enable"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-4903ce03-38d8-4750-a2f1-088773e52d1b"
+                    },
+                    {
+                      "id": "15ffa4b0-836f-4557-ac2a-1f13230c2a7f",
+                      "name": "Access denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/enable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "enable"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-15ffa4b0-836f-4557-ac2a-1f13230c2a7f"
+                    },
+                    {
+                      "id": "7cda18db-651e-4f94-9a7d-d309f44051ab",
+                      "name": "Internal server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/enable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "enable"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-7cda18db-651e-4f94-9a7d-d309f44051ab"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-35eff47d-aa6f-4a9a-88ab-bb8f7ba42e49"
+                }
+              ],
+              "id": "9885bd36-48f6-497c-8b88-26022e2d4bf1",
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-9885bd36-48f6-497c-8b88-26022e2d4bf1"
+            },
+            {
+              "name": "disable",
+              "item": [
+                {
+                  "name": "Amazon KMS Disable Key",
+                  "id": "90427746-c4b0-4cb6-8fa3-1d6266c6d5a7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId/disable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId",
+                        "disable"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8f9f4c64-2037-4782-a527-9aaa3fce609a",
+                          "key": "KeyId",
+                          "value": "<string>",
+                          "description": "(Required) Identifies the KMS key."
+                        }
+                      ]
+                    },
+                    "description": "Sets the state of a KMS key to disabled."
+                  },
+                  "response": [
+                    {
+                      "id": "b5e3c3f7-dfc3-4ecf-a379-f15631e969fc",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/disable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "disable"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-b5e3c3f7-dfc3-4ecf-a379-f15631e969fc"
+                    },
+                    {
+                      "id": "b0571058-b46d-472a-9dab-6b50d6ac3897",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/disable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "disable"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-b0571058-b46d-472a-9dab-6b50d6ac3897"
+                    },
+                    {
+                      "id": "d64d72d3-291e-4d2a-9224-6b7cfbc1247f",
+                      "name": "Access denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/disable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "disable"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-d64d72d3-291e-4d2a-9224-6b7cfbc1247f"
+                    },
+                    {
+                      "id": "b7c597f2-b6a7-43d2-ae44-359bc722deb8",
+                      "name": "Internal server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/disable",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "disable"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-b7c597f2-b6a7-43d2-ae44-359bc722deb8"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-90427746-c4b0-4cb6-8fa3-1d6266c6d5a7"
+                }
+              ],
+              "id": "c31e7c8e-2cd9-4af1-a69e-7e3fdf0696ab",
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-c31e7c8e-2cd9-4af1-a69e-7e3fdf0696ab"
+            },
+            {
+              "name": "deletion",
+              "item": [
+                {
+                  "name": "Amazon KMS Schedule Key Deletion",
+                  "id": "c0c56be5-49ed-4b09-a9d7-645f279ef793",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId/deletion",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId",
+                        "deletion"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1e86cfcb-1578-41c5-b0ed-251606c7cbfc",
+                          "key": "KeyId",
+                          "value": "<string>",
+                          "description": "(Required) Identifies the KMS key."
+                        }
+                      ]
+                    },
+                    "description": "Schedules the deletion of a KMS key."
+                  },
+                  "response": [
+                    {
+                      "id": "02c0841b-00fd-4ea3-b49e-745a1f9421cc",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/deletion",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "deletion"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-02c0841b-00fd-4ea3-b49e-745a1f9421cc"
+                    },
+                    {
+                      "id": "d5952b34-6fdc-4c55-9049-7e4e54a6de71",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/deletion",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "deletion"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-d5952b34-6fdc-4c55-9049-7e4e54a6de71"
+                    },
+                    {
+                      "id": "85164ab4-3cb1-4fb3-926a-6b7adac8b8bb",
+                      "name": "Access denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/deletion",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "deletion"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-85164ab4-3cb1-4fb3-926a-6b7adac8b8bb"
+                    },
+                    {
+                      "id": "0442937b-2290-4e07-ba19-8fb00778a7c9",
+                      "name": "Internal server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/deletion",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "deletion"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-0442937b-2290-4e07-ba19-8fb00778a7c9"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-c0c56be5-49ed-4b09-a9d7-645f279ef793"
+                }
+              ],
+              "id": "b39694ad-2f4c-441a-99b9-c0a4d3dda61b",
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-b39694ad-2f4c-441a-99b9-c0a4d3dda61b"
+            },
+            {
+              "name": "encrypt",
+              "item": [
+                {
+                  "name": "Amazon KMS Encrypt",
+                  "id": "23600ed0-886f-4b7e-834b-06af56e5dec4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId/encrypt",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId",
+                        "encrypt"
+                      ],
+                      "variable": [
+                        {
+                          "id": "47a0397d-94d3-4ee8-b0c7-b60838459c53",
+                          "key": "KeyId",
+                          "value": "<string>",
+                          "description": "(Required) Identifies the KMS key."
+                        }
+                      ]
+                    },
+                    "description": "Encrypts plaintext of up to 4,096 bytes using a KMS key."
+                  },
+                  "response": [
+                    {
+                      "id": "5c43fa0a-3de8-4ffd-9ff5-e85eeba83760",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/encrypt",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "encrypt"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-5c43fa0a-3de8-4ffd-9ff5-e85eeba83760"
+                    },
+                    {
+                      "id": "5946227f-42b2-440a-9046-54f6f28c81e4",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/encrypt",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "encrypt"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-5946227f-42b2-440a-9046-54f6f28c81e4"
+                    },
+                    {
+                      "id": "560020f7-9ec5-4082-98be-d5600856c137",
+                      "name": "Access denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/encrypt",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "encrypt"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-560020f7-9ec5-4082-98be-d5600856c137"
+                    },
+                    {
+                      "id": "8cbb476f-1673-41fc-88cc-65e1430ead28",
+                      "name": "Internal server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/encrypt",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "encrypt"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-8cbb476f-1673-41fc-88cc-65e1430ead28"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-23600ed0-886f-4b7e-834b-06af56e5dec4"
+                }
+              ],
+              "id": "089e8732-46a8-410b-a3b4-0dde3fbfdfb9",
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-089e8732-46a8-410b-a3b4-0dde3fbfdfb9"
+            },
+            {
+              "name": "data-key",
+              "item": [
+                {
+                  "name": "Amazon KMS Generate Data Key",
+                  "id": "1b54b8d3-758d-4a8a-a2c1-42f39b5a47c2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId/data-key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId",
+                        "data-key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a549a3de-d10f-4310-8c87-a4df650504cf",
+                          "key": "KeyId",
+                          "value": "<string>",
+                          "description": "(Required) Identifies the KMS key."
+                        }
+                      ]
+                    },
+                    "description": "Returns a unique symmetric data key for use outside of KMS."
+                  },
+                  "response": [
+                    {
+                      "id": "f9c0d559-5973-4779-8b7c-f8e52b3f6bc2",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/data-key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "data-key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-f9c0d559-5973-4779-8b7c-f8e52b3f6bc2"
+                    },
+                    {
+                      "id": "3b77fce5-1923-4c58-9b3d-c5bd55404cb4",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/data-key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "data-key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-3b77fce5-1923-4c58-9b3d-c5bd55404cb4"
+                    },
+                    {
+                      "id": "b2c8c608-2768-4bff-be71-38b1fb818a8a",
+                      "name": "Access denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/data-key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "data-key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-b2c8c608-2768-4bff-be71-38b1fb818a8a"
+                    },
+                    {
+                      "id": "adf4c724-864a-4ed9-84d8-ec0057da7ecb",
+                      "name": "Internal server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/data-key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "data-key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-adf4c724-864a-4ed9-84d8-ec0057da7ecb"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-1b54b8d3-758d-4a8a-a2c1-42f39b5a47c2"
+                }
+              ],
+              "id": "3e0d0f2c-aec9-4994-9255-7a51a06c496b",
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-3e0d0f2c-aec9-4994-9255-7a51a06c496b"
+            },
+            {
+              "name": "sign",
+              "item": [
+                {
+                  "name": "Amazon KMS Sign",
+                  "id": "a4f55e82-99c6-4267-bfbc-1f4090dfd7a8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId/sign",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId",
+                        "sign"
+                      ],
+                      "variable": [
+                        {
+                          "id": "465b0ec8-1321-4cbf-84f3-e4edaf14334e",
+                          "key": "KeyId",
+                          "value": "<string>",
+                          "description": "(Required) Identifies the KMS key."
+                        }
+                      ]
+                    },
+                    "description": "Creates a digital signature for a message or message digest using an asymmetric KMS key."
+                  },
+                  "response": [
+                    {
+                      "id": "56a6a24a-f6fb-4405-976b-0ecdf4c4943f",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/sign",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "sign"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-56a6a24a-f6fb-4405-976b-0ecdf4c4943f"
+                    },
+                    {
+                      "id": "cb92fefb-bfef-41f6-be27-4bdd287a92b7",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/sign",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "sign"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-cb92fefb-bfef-41f6-be27-4bdd287a92b7"
+                    },
+                    {
+                      "id": "dc3cba58-b3ee-4b9a-bc98-a1d8ca171ac1",
+                      "name": "Access denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/sign",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "sign"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-dc3cba58-b3ee-4b9a-bc98-a1d8ca171ac1"
+                    },
+                    {
+                      "id": "667df117-feb5-4dff-841d-636574bc9f04",
+                      "name": "Internal server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/sign",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "sign"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-667df117-feb5-4dff-841d-636574bc9f04"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-a4f55e82-99c6-4267-bfbc-1f4090dfd7a8"
+                }
+              ],
+              "id": "8fb52705-46d7-4b8b-8711-70dd932cdba9",
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-8fb52705-46d7-4b8b-8711-70dd932cdba9"
+            },
+            {
+              "name": "verify",
+              "item": [
+                {
+                  "name": "Amazon KMS Verify",
+                  "id": "501491ed-3018-4370-bbf2-03d3bf14a6d4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId/verify",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId",
+                        "verify"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9913fa99-290c-4b3e-ba92-46068b73f464",
+                          "key": "KeyId",
+                          "value": "<string>",
+                          "description": "(Required) Identifies the KMS key."
+                        }
+                      ]
+                    },
+                    "description": "Verifies a digital signature that was generated by the Sign operation."
+                  },
+                  "response": [
+                    {
+                      "id": "af5e0b63-3bf4-48b7-8eb7-760b68f4d109",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/verify",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "verify"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-af5e0b63-3bf4-48b7-8eb7-760b68f4d109"
+                    },
+                    {
+                      "id": "83d00f60-b70a-411a-851d-1482c30f4468",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/verify",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "verify"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-83d00f60-b70a-411a-851d-1482c30f4468"
+                    },
+                    {
+                      "id": "94ae8e0d-671a-4866-8dfa-bfc74c8060f3",
+                      "name": "Access denied",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/verify",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "verify"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-94ae8e0d-671a-4866-8dfa-bfc74c8060f3"
+                    },
+                    {
+                      "id": "3d125326-bb56-41ba-beaf-2615fc0d05e6",
+                      "name": "Internal server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:KeyId/verify",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":KeyId",
+                            "verify"
+                          ],
+                          "variable": [
+                            {
+                              "key": "KeyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:04:34.000Z",
+                      "updatedAt": "2026-06-05T15:04:34.000Z",
+                      "uid": "35240-3d125326-bb56-41ba-beaf-2615fc0d05e6"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-501491ed-3018-4370-bbf2-03d3bf14a6d4"
+                }
+              ],
+              "id": "20f64865-76d1-45e7-b585-934afbd40800",
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-20f64865-76d1-45e7-b585-934afbd40800"
+            },
+            {
+              "name": "Amazon KMS Describe Key",
+              "id": "98b3aa6a-f9bb-4b16-a584-9a2178beea6c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/keys/:KeyId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys",
+                    ":KeyId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0b41a3bc-c042-476f-9fcd-db51c8bbe3dd",
+                      "key": "KeyId",
+                      "value": "<string>",
+                      "description": "(Required) Identifies the KMS key to describe."
+                    }
+                  ]
+                },
+                "description": "Provides detailed information about a KMS key."
+              },
+              "response": [
+                {
+                  "id": "90509dc0-6f04-4975-a16c-cecb99aa890d",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "KeyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-90509dc0-6f04-4975-a16c-cecb99aa890d"
+                },
+                {
+                  "id": "cd77c0e5-14b7-43e1-bfaa-2bc1a5a15bc8",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "KeyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-cd77c0e5-14b7-43e1-bfaa-2bc1a5a15bc8"
+                },
+                {
+                  "id": "a29c9dc0-d1db-4431-a159-04fb101ded0c",
+                  "name": "Access denied",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "KeyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-a29c9dc0-d1db-4431-a159-04fb101ded0c"
+                },
+                {
+                  "id": "766b8157-10c5-4f96-b677-fa5aa2ffdf4e",
+                  "name": "Internal server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:KeyId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":KeyId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "KeyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:04:34.000Z",
+                  "updatedAt": "2026-06-05T15:04:34.000Z",
+                  "uid": "35240-766b8157-10c5-4f96-b677-fa5aa2ffdf4e"
+                }
+              ],
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-98b3aa6a-f9bb-4b16-a584-9a2178beea6c"
+            }
+          ],
+          "id": "fd3f960a-5573-4fbd-8f87-5e312af2f0b6",
+          "createdAt": "2026-06-05T15:04:34.000Z",
+          "updatedAt": "2026-06-05T15:04:34.000Z",
+          "uid": "35240-fd3f960a-5573-4fbd-8f87-5e312af2f0b6"
+        },
+        {
+          "name": "Amazon KMS Create Key",
+          "id": "cf56f793-9fd4-407f-8d89-4503260e198e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/keys",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "keys"
+              ]
+            },
+            "description": "Creates a unique customer managed KMS key in your AWS account and Region."
+          },
+          "response": [
+            {
+              "id": "2bdf0815-e2ee-45c4-ae7d-2d71105494c0",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-2bdf0815-e2ee-45c4-ae7d-2d71105494c0"
+            },
+            {
+              "id": "8310a23f-82eb-4fb3-8da4-5c750a064d74",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-8310a23f-82eb-4fb3-8da4-5c750a064d74"
+            },
+            {
+              "id": "67c43fc0-a789-4771-a544-ec9a0638e7b4",
+              "name": "Access denied",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-67c43fc0-a789-4771-a544-ec9a0638e7b4"
+            },
+            {
+              "id": "65b7c876-4bb2-4bb4-adb2-d7a84181b2db",
+              "name": "Internal server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-65b7c876-4bb2-4bb4-adb2-d7a84181b2db"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:34.000Z",
+          "updatedAt": "2026-06-05T15:04:34.000Z",
+          "uid": "35240-cf56f793-9fd4-407f-8d89-4503260e198e"
+        },
+        {
+          "name": "Amazon KMS List Keys",
+          "id": "18ce677d-7074-4e7e-a8d6-8a27258ec277",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/keys",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "keys"
+              ]
+            },
+            "description": "Gets a list of all KMS keys in the caller's AWS account and Region."
+          },
+          "response": [
+            {
+              "id": "eb7e986b-a1e9-4fc6-8864-6ce79735debb",
+              "name": "Success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-eb7e986b-a1e9-4fc6-8864-6ce79735debb"
+            },
+            {
+              "id": "79bac641-8fa4-4e46-b838-8cfce283df58",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-79bac641-8fa4-4e46-b838-8cfce283df58"
+            },
+            {
+              "id": "ed0e75e7-3e84-42d8-b071-9f7431819919",
+              "name": "Access denied",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-ed0e75e7-3e84-42d8-b071-9f7431819919"
+            },
+            {
+              "id": "2e1af48d-0c6e-4045-a53a-0cc3cfff3bd8",
+              "name": "Internal server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-2e1af48d-0c6e-4045-a53a-0cc3cfff3bd8"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:34.000Z",
+          "updatedAt": "2026-06-05T15:04:34.000Z",
+          "uid": "35240-18ce677d-7074-4e7e-a8d6-8a27258ec277"
+        }
+      ],
+      "id": "969c7d2b-8416-4808-869a-f9ea57ea3a6a",
+      "createdAt": "2026-06-05T15:04:34.000Z",
+      "updatedAt": "2026-06-05T15:04:34.000Z",
+      "uid": "35240-969c7d2b-8416-4808-869a-f9ea57ea3a6a"
+    },
+    {
+      "name": "decrypt",
+      "item": [
+        {
+          "name": "Amazon KMS Decrypt",
+          "id": "489e6b4c-ab33-4b96-bd0e-a9b7ed2232eb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/decrypt",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "decrypt"
+              ]
+            },
+            "description": "Decrypts ciphertext that was encrypted by a KMS key."
+          },
+          "response": [
+            {
+              "id": "b15e5fec-2756-4792-800d-3159bd0c67eb",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/decrypt",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "decrypt"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-b15e5fec-2756-4792-800d-3159bd0c67eb"
+            },
+            {
+              "id": "7e9097f8-0fe1-4936-999d-b02700476d52",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/decrypt",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "decrypt"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-7e9097f8-0fe1-4936-999d-b02700476d52"
+            },
+            {
+              "id": "bdb6e8db-ba3f-48ed-a5ce-5b6f02a21d42",
+              "name": "Access denied",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/decrypt",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "decrypt"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-bdb6e8db-ba3f-48ed-a5ce-5b6f02a21d42"
+            },
+            {
+              "id": "17e020ee-eaf7-4447-b8ff-16123d869c6e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/decrypt",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "decrypt"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:04:34.000Z",
+              "updatedAt": "2026-06-05T15:04:34.000Z",
+              "uid": "35240-17e020ee-eaf7-4447-b8ff-16123d869c6e"
+            }
+          ],
+          "createdAt": "2026-06-05T15:04:34.000Z",
+          "updatedAt": "2026-06-05T15:04:34.000Z",
+          "uid": "35240-489e6b4c-ab33-4b96-bd0e-a9b7ed2232eb"
+        }
+      ],
+      "id": "c633077f-89f7-4c42-ae56-b7534c3caf58",
+      "createdAt": "2026-06-05T15:04:34.000Z",
+      "updatedAt": "2026-06-05T15:04:34.000Z",
+      "uid": "35240-c633077f-89f7-4c42-ae56-b7534c3caf58"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://kms.us-east-1.amazonaws.com"
+    }
+  ]
+}
