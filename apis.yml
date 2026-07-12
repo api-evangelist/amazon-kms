@@ -55,6 +55,14 @@ apis:
       - type: JSONSchema
         url: json-schema/amazon-kms-key-schema.json
 common:
+  - type: TrustCenter
+    url: security/amazon-kms-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-kms-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-kms-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-kms-authentication.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-kms/overview
   - type: Arazzo
