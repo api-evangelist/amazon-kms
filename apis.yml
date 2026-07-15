@@ -55,6 +55,8 @@ apis:
       - type: JSONSchema
         url: json-schema/amazon-kms-key-schema.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-kms-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-kms-trust-center.yml
   - type: VulnerabilityDisclosure
