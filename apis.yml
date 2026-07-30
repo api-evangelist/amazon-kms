@@ -8,6 +8,19 @@ description: >-
   those services.
 url: https://aws.amazon.com/kms/
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 tags:
   - AWS
@@ -19,41 +32,58 @@ tags:
 created: '2024-01-15'
 modified: '2026-05-19'
 apis:
-  - name: Amazon KMS API
-    description: >-
-      The AWS Key Management Service API provides programmatic access to create and manage cryptographic keys, encrypt
-      and decrypt data, generate data keys, and manage key policies and grants for controlling access to encryption
-      operations.
-    image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-    humanURL: https://aws.amazon.com/kms/
-    baseURL: https://kms.amazonaws.com
-    tags:
-      - Cryptography
-      - Encryption
-      - Key Management
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
-      - type: OpenAPI
-        url: https://api.apis.guru/v2/specs/amazonaws.com/kms/2014-11-01/openapi.yaml
-      - type: Pricing
-        url: https://aws.amazon.com/kms/pricing/
-      - type: GettingStarted
-        url: https://aws.amazon.com/kms/getting-started/
-      - type: FAQ
-        url: https://aws.amazon.com/kms/faqs/
-      - type: Features
-        url: https://aws.amazon.com/kms/features/
-      - type: Documentation
-        url: https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
-      - type: APIReference
-        url: https://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html
-      - type: OpenAPI
-        url: openapi/amazon-kms-openapi.yml
-      - type: JSONLD
-        url: json-ld/amazon-kms-context.jsonld
-      - type: JSONSchema
-        url: json-schema/amazon-kms-key-schema.json
+- aid: amazon-kms:amazon-kms-cryptographic-operations-api
+  name: Amazon KMS Cryptographic Operations API
+  description: Encryption, decryption, and signing operations
+  humanURL: https://aws.amazon.com/kms/
+  baseURL: https://kms.amazonaws.com
+  tags:
+  - Cryptographic Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kms-cryptographic-operations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
+  - type: Pricing
+    url: https://aws.amazon.com/kms/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kms/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kms/faqs/
+  - type: Features
+    url: https://aws.amazon.com/kms/features/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html
+  - type: JSONLD
+    url: json-ld/amazon-kms-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-kms-key-schema.json
+- aid: amazon-kms:amazon-kms-keys-api
+  name: Amazon KMS Keys API
+  description: KMS cryptographic key management
+  humanURL: https://aws.amazon.com/kms/
+  baseURL: https://kms.amazonaws.com
+  tags:
+  - Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kms-keys-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
+  - type: Pricing
+    url: https://aws.amazon.com/kms/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kms/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kms/faqs/
+  - type: Features
+    url: https://aws.amazon.com/kms/features/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html
+  - type: JSONLD
+    url: json-ld/amazon-kms-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-kms-key-schema.json
 common:
   - type: AgenticAccess
     url: agentic-access/amazon-kms-agentic-access.yml
