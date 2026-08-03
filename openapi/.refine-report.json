@@ -1,0 +1,16 @@
+{
+  "provider": "amazon-kms",
+  "sources": [
+    "amazon-kms-cryptographic-operations-api-openapi.yml",
+    "amazon-kms-keys-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-kms-cryptographic-operations-api-openapi.yml",
+    "amazon-kms-keys-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

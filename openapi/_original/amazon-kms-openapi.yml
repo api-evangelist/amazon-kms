@@ -1,0 +1,349 @@
+openapi: 3.1.0
+info:
+  title: Amazon KMS API
+  description: The Amazon KMS API provides programmatic access to manage KMS resources.
+  version: '2024-01-01'
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  x-logo:
+    url: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+servers:
+- url: https://kms.us-east-1.amazonaws.com
+  description: Amazon KMS endpoint
+security:
+- sigv4: []
+tags:
+- name: Keys
+  description: KMS cryptographic key management
+- name: Cryptographic Operations
+  description: Encryption, decryption, and signing operations
+paths:
+  /keys:
+    post:
+      operationId: CreateKey
+      summary: Amazon KMS Create Key
+      description: Creates a unique customer managed KMS key in your AWS account and Region.
+      tags:
+      - Keys
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      operationId: ListKeys
+      summary: Amazon KMS List Keys
+      description: Gets a list of all KMS keys in the caller's AWS account and Region.
+      tags:
+      - Keys
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /keys/{KeyId}:
+    get:
+      operationId: DescribeKey
+      summary: Amazon KMS Describe Key
+      description: Provides detailed information about a KMS key.
+      tags:
+      - Keys
+      parameters:
+      - name: KeyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Identifies the KMS key to describe.
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /keys/{KeyId}/enable:
+    post:
+      operationId: EnableKey
+      summary: Amazon KMS Enable Key
+      description: Sets the key state of a KMS key to enabled.
+      tags:
+      - Keys
+      parameters:
+      - name: KeyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Identifies the KMS key.
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /keys/{KeyId}/disable:
+    post:
+      operationId: DisableKey
+      summary: Amazon KMS Disable Key
+      description: Sets the state of a KMS key to disabled.
+      tags:
+      - Keys
+      parameters:
+      - name: KeyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Identifies the KMS key.
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /keys/{KeyId}/deletion:
+    post:
+      operationId: ScheduleKeyDeletion
+      summary: Amazon KMS Schedule Key Deletion
+      description: Schedules the deletion of a KMS key.
+      tags:
+      - Keys
+      parameters:
+      - name: KeyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Identifies the KMS key.
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /keys/{KeyId}/encrypt:
+    post:
+      operationId: Encrypt
+      summary: Amazon KMS Encrypt
+      description: Encrypts plaintext of up to 4,096 bytes using a KMS key.
+      tags:
+      - Cryptographic Operations
+      parameters:
+      - name: KeyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Identifies the KMS key.
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /decrypt:
+    post:
+      operationId: Decrypt
+      summary: Amazon KMS Decrypt
+      description: Decrypts ciphertext that was encrypted by a KMS key.
+      tags:
+      - Cryptographic Operations
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /keys/{KeyId}/data-key:
+    post:
+      operationId: GenerateDataKey
+      summary: Amazon KMS Generate Data Key
+      description: Returns a unique symmetric data key for use outside of KMS.
+      tags:
+      - Cryptographic Operations
+      parameters:
+      - name: KeyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Identifies the KMS key.
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /keys/{KeyId}/sign:
+    post:
+      operationId: Sign
+      summary: Amazon KMS Sign
+      description: Creates a digital signature for a message or message digest using an asymmetric KMS key.
+      tags:
+      - Cryptographic Operations
+      parameters:
+      - name: KeyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Identifies the KMS key.
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /keys/{KeyId}/verify:
+    post:
+      operationId: Verify
+      summary: Amazon KMS Verify
+      description: Verifies a digital signature that was generated by the Sign operation.
+      tags:
+      - Cryptographic Operations
+      parameters:
+      - name: KeyId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Identifies the KMS key.
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad request
+        '403':
+          description: Access denied
+        '500':
+          description: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+  schemas:
+    Key:
+      type: object
+      description: An AWS KMS key (formerly customer master key) used for cryptographic operations.
+      properties:
+        KeyId:
+          type: string
+          description: The globally unique identifier for the KMS key.
+          example: mrk-1234abcd12ab34cd56ef1234567890ab
+        KeyArn:
+          type: string
+          description: The Amazon Resource Name (ARN) of the KMS key.
+        KeyState:
+          type: string
+          description: The current status of the KMS key.
+          example: Enabled
+          enum:
+          - Creating
+          - Enabled
+          - Disabled
+          - PendingDeletion
+          - PendingImport
+          - PendingReplicaDeletion
+          - Unavailable
+          - Updating
+        KeyUsage:
+          type: string
+          description: The cryptographic operations for which the KMS key can be used.
+          example: ENCRYPT_DECRYPT
+          enum:
+          - SIGN_VERIFY
+          - ENCRYPT_DECRYPT
+          - GENERATE_VERIFY_MAC
+        KeySpec:
+          type: string
+          description: Describes the type of key material in the KMS key.
+          example: SYMMETRIC_DEFAULT
+        Description:
+          type: string
+          description: The description of the KMS key.
+        CreationDate:
+          type: string
+          description: The date and time when the KMS key was created.
+          format: date-time
+        DeletionDate:
+          type: string
+          description: The date and time after which KMS deletes this KMS key.
+          format: date-time
+        Enabled:
+          type: boolean
+          description: Specifies whether the KMS key is enabled.
+        MultiRegion:
+          type: boolean
+          description: Indicates whether the KMS key is a multi-Region key.
