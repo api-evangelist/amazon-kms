@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon KMS Cryptographic Operations Keys API",
+    "version": "2024-01-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Keys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon KMS List Keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://kms.us-east-1.amazonaws.com/keys"
+          },
+          "docs": "Gets a list of all KMS keys in the caller's AWS account and Region."
+        },
+        {
+          "info": {
+            "name": "Amazon KMS Create Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://kms.us-east-1.amazonaws.com/keys"
+          },
+          "docs": "Creates a unique customer managed KMS key in your AWS account and Region."
+        },
+        {
+          "info": {
+            "name": "Amazon KMS Describe Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://kms.us-east-1.amazonaws.com/keys/:KeyId",
+            "params": [
+              {
+                "name": "KeyId",
+                "value": "",
+                "type": "path",
+                "description": "Identifies the KMS key to describe."
+              }
+            ]
+          },
+          "docs": "Provides detailed information about a KMS key."
+        },
+        {
+          "info": {
+            "name": "Amazon KMS Enable Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://kms.us-east-1.amazonaws.com/keys/:KeyId/enable",
+            "params": [
+              {
+                "name": "KeyId",
+                "value": "",
+                "type": "path",
+                "description": "Identifies the KMS key."
+              }
+            ]
+          },
+          "docs": "Sets the key state of a KMS key to enabled."
+        },
+        {
+          "info": {
+            "name": "Amazon KMS Disable Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://kms.us-east-1.amazonaws.com/keys/:KeyId/disable",
+            "params": [
+              {
+                "name": "KeyId",
+                "value": "",
+                "type": "path",
+                "description": "Identifies the KMS key."
+              }
+            ]
+          },
+          "docs": "Sets the state of a KMS key to disabled."
+        },
+        {
+          "info": {
+            "name": "Amazon KMS Schedule Key Deletion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://kms.us-east-1.amazonaws.com/keys/:KeyId/deletion",
+            "params": [
+              {
+                "name": "KeyId",
+                "value": "",
+                "type": "path",
+                "description": "Identifies the KMS key."
+              }
+            ]
+          },
+          "docs": "Schedules the deletion of a KMS key."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
