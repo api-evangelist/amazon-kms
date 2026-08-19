@@ -1,4 +1,5 @@
 name: Amazon KMS
+specificationVersion: '0.23'
 segments:
   - Security
   - Encryption
