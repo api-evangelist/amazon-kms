@@ -12,8 +12,8 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: kmsApi
-  url: ../openapi/amazon-kms-openapi.yml
+- name: cryptographicOperationsApi
+  url: ../openapi/amazon-kms-cryptographic-operations-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: envelope-encrypt-decrypt

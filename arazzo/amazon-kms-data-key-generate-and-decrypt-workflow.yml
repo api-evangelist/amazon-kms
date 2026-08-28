@@ -13,8 +13,8 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: kmsApi
-  url: ../openapi/amazon-kms-openapi.yml
+- name: cryptographicOperationsApi
+  url: ../openapi/amazon-kms-cryptographic-operations-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: generate-and-recover-data-key

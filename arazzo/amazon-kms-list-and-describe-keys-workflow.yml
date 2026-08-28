@@ -12,8 +12,8 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: kmsApi
-  url: ../openapi/amazon-kms-openapi.yml
+- name: keysApi
+  url: ../openapi/amazon-kms-keys-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: list-and-describe-keys
