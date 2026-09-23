@@ -1,8 +1,7 @@
 {
   "provider": "amazon-kms",
   "sources": [
-    "amazon-kms-cryptographic-operations-api-openapi.yml",
-    "amazon-kms-keys-api-openapi.yml"
+    "_original/amazon-kms-openapi.yml"
   ],
   "outputs": [
     "amazon-kms-cryptographic-operations-api-openapi.yml",
@@ -12,7 +11,12 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-kms-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-kms-cryptographic-operations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-kms-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

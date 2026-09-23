@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon KMS Cryptographic Operations Keys API
+  title: Amazon KMS Keys API
   description: The Amazon KMS API provides programmatic access to manage KMS resources.
   version: '2024-01-01'
   contact:
