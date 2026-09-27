@@ -99,7 +99,7 @@ apis:
     url: json-schema/amazon-kms-key-schema.json
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://aws.amazon.com/kms/
 - type: AgenticAccess
   url: agentic-access/amazon-kms-agentic-access.yml
 - type: TrustCenter
@@ -226,5 +226,5 @@ maintainers:
   email: kin@apievangelist.com
   url: https://apievangelist.com
 include: []
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product
