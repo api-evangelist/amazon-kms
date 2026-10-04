@@ -98,6 +98,9 @@ apis:
   - type: JSONSchema
     url: json-schema/amazon-kms-key-schema.json
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-kms-capability-edges.yml
+  name: Amazon KMS Business Capability Map
 - type: Website
   url: https://aws.amazon.com/kms/
 - type: AgenticAccess

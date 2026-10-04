@@ -1,0 +1,36 @@
+slug: amazon-kms
+provider: Amazon KMS
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Cryptographic Operations
+  spec_file: amazon-kms-cryptographic-operations-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.8
+  evidence: POST /keys/{KeyId}/encrypt  Encrypt; POST /decrypt  Decrypt; POST /keys/{KeyId}/sign  Sign;
+    POST /keys/{KeyId}/verify  Verify
+  reason: Encrypt, decrypt, data-key generation, sign and verify are security control operations, placing
+    this squarely in Cybersecurity Management. No listed L2 cleanly covers cryptographic key operations
+    (it is neither IAM nor vulnerability management), so L2 is left null.
+- tag: Keys
+  spec_file: amazon-kms-keys-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.8
+  evidence: POST /keys  CreateKey; POST /keys/{KeyId}/enable  EnableKey; POST /keys/{KeyId}/deletion  ScheduleKeyDeletion
+  reason: Lifecycle management of cryptographic keys used to protect data is a security control capability
+    under Cybersecurity Management. Left at L1 because key management is not specifically identity/access,
+    threat response, or vulnerability management in the candidate list.
