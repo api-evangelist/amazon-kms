@@ -98,6 +98,12 @@ apis:
   - type: JSONSchema
     url: json-schema/amazon-kms-key-schema.json
 common:
+- type: Plans
+  url: plans/amazon-kms-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/amazon-kms-rate-limits.yml
+- type: FinOps
+  url: finops/amazon-kms-finops.yml
 - type: CapabilityMap
   url: capabilities/amazon-kms-capability-edges.yml
   name: Amazon KMS Business Capability Map
