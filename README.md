@@ -1,4 +1,4 @@
-# Amazon KMS (amazon-kms)
+# Amazon KMS
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,85 +66,186 @@
 
 AWS Key Management Service (KMS) is a managed service that makes it easy to create and control the cryptographic keys used to protect your data, integrated with other AWS services to simplify encryption of data stored and managed in those services.
 
-**APIs.json:** [https://aws.amazon.com/kms/](https://aws.amazon.com/kms/)
+**Areas:** AWS · Cryptography · Data Protection · Encryption · Key Management · Security
 
-## Scope
+## Amazon KMS on APIs.io
 
-- **Type:** Index
+Everything profiled for Amazon KMS is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-kms/](https://apis.io/providers/amazon-kms/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (8)
 
-- AWS
-- Cryptography
-- Data Protection
-- Encryption
-- Key Management
-- Security
+- [Amazon KMS Cryptographic Operations API](https://apis.io/apis/amazon-kms/amazon-kms-cryptographic-operations-api/) — Encryption, decryption, and signing operations
+- [Amazon KMS Keys API](https://apis.io/apis/amazon-kms/amazon-kms-keys-api/) — KMS cryptographic key management
+- [Amazon KMS Kms Alias API](https://apis.io/apis/amazon-kms/amazon-kms-alias-api/) — The Kms Alias API from Amazon KMS — 3 operation(s) for kms alias.
+- [Amazon KMS Kms Custom Key Store API](https://apis.io/apis/amazon-kms/amazon-kms-custom-key-store-api/) — The Kms Custom Key Store API from Amazon KMS — 6 operation(s) for kms custom key store.
+- [Amazon KMS Kms Grant API](https://apis.io/apis/amazon-kms/amazon-kms-grant-api/) — The Kms Grant API from Amazon KMS — 4 operation(s) for kms grant.
+- [Amazon KMS Kms Key Policy API](https://apis.io/apis/amazon-kms/amazon-kms-key-policy-api/) — The Kms Key Policy API from Amazon KMS — 3 operation(s) for kms key policy.
+- [Amazon KMS Kms Key Rotation API](https://apis.io/apis/amazon-kms/amazon-kms-key-rotation-api/) — The Kms Key Rotation API from Amazon KMS — 3 operation(s) for kms key rotation.
+- [Amazon KMS Kms Operations API](https://apis.io/apis/amazon-kms/amazon-kms-operations-api/) — The Kms Operations API from Amazon KMS — 21 operation(s) for kms operations.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Arazzo workflows (8)
 
-### Amazon KMS API
+Multi-step workflows that chain operations into a business task.
 
-The AWS Key Management Service API provides programmatic access to create and manage cryptographic keys, encrypt and decrypt data, generate data keys, and manage key policies and grants for controlling access to encryption operations.
+- [Amazon KMS Create Key and Describe](https://apis.io/arazzos/amazon-kms/amazon-kms-create-key-and-describe-workflow/)
+- [Amazon KMS Generate and Recover Data Key](https://apis.io/arazzos/amazon-kms/amazon-kms-data-key-generate-and-decrypt-workflow/)
+- [Amazon KMS Disable and Schedule Key Deletion](https://apis.io/arazzos/amazon-kms/amazon-kms-disable-and-schedule-deletion-workflow/)
+- [Amazon KMS Enable Key and Verify State](https://apis.io/arazzos/amazon-kms/amazon-kms-enable-key-and-verify-state-workflow/)
+- [Amazon KMS Envelope Encrypt and Decrypt](https://apis.io/arazzos/amazon-kms/amazon-kms-envelope-encrypt-decrypt-workflow/)
+- [Amazon KMS List and Describe Keys](https://apis.io/arazzos/amazon-kms/amazon-kms-list-and-describe-keys-workflow/)
+- [Amazon KMS Provision Key and Encrypt](https://apis.io/arazzos/amazon-kms/amazon-kms-provision-key-and-encrypt-workflow/)
+- [Amazon KMS Sign and Verify](https://apis.io/arazzos/amazon-kms/amazon-kms-sign-and-verify-workflow/)
 
-- **Human URL:** [https://aws.amazon.com/kms/](https://aws.amazon.com/kms/)
-- **Base URL:** `https://kms.amazonaws.com`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Cryptography
-- Encryption
-- Key Management
+- [Amazon Kms Agentic Access](https://apis.io/agentic-access/amazon-kms/amazon-kms-agentic-access/)
 
-#### Properties
+#### JSON Schema (1)
 
-- [Documentation](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)
-- [OpenAPI](https://api.apis.guru/v2/specs/amazonaws.com/kms/2014-11-01/openapi.yaml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Pricing](https://aws.amazon.com/kms/pricing/)
-- [Getting Started](https://aws.amazon.com/kms/getting-started/)
-- [F A Q](https://aws.amazon.com/kms/faqs/)
-- [Features](https://aws.amazon.com/kms/features/)
-- [Documentation](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)
-- [API Reference](https://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html)
-- [OpenAPI](openapi/amazon-kms-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/amazon-kms.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-kms.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON-LD](json-ld/amazon-kms-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/amazon-kms-key-schema.json) — [JSON Schema](https://json-schema.org/specification)
+The data models the API reads and writes.
 
-## Common Properties
+- [Key](https://apis.io/schemas/amazon-kms/amazon-kms-key/)
 
-- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
-- [Blog](https://aws.amazon.com/blogs/security/category/security-identity-compliance/aws-key-management-service/)
-- [Support](https://aws.amazon.com/premiumsupport/)
-- [Console](https://console.aws.amazon.com/kms/home)
-- [C L I](https://docs.aws.amazon.com/cli/latest/reference/kms/)
-- [SDK](https://aws.amazon.com/tools/)
-- [Status Page](https://status.aws.amazon.com/)
-- [Compliance](https://aws.amazon.com/compliance/)
-- [Terms of Service](https://aws.amazon.com/service-terms/)
-- [Portal](https://aws.amazon.com/kms/)
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Amazon Kms Key Structure](https://apis.io/json-structure/amazon-kms/amazon-kms-key-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Kms Context](https://apis.io/jsonld/amazon-kms/amazon-kms-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Kms Vocabulary](https://apis.io/vocabularies/amazon-kms/amazon-kms-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Amazon Kms Key Example](https://apis.io/examples/amazon-kms/amazon-kms-key-example/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [Amazon KMS API](https://apis.io/collections/amazon-kms/open-amazon-kms/)
+- [Amazon KMS Cryptographic Operations API](https://apis.io/collections/amazon-kms/open-amazon-kms-cryptographic-operations-api/)
+- [Amazon KMS Cryptographic Operations Keys API](https://apis.io/collections/amazon-kms/open-amazon-kms-keys-api/)
+- [Amazon KMS API](https://apis.io/collections/amazon-kms/postman-amazon-kms/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon KMS — jsonschema rules](https://apis.io/rules/amazon-kms/amazon-kms-jsonschema-spectral-rules/)
+- [Amazon KMS API Rules](https://apis.io/rules/amazon-kms/amazon-kms-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Kms Authentication](https://apis.io/security/amazon-kms/amazon-kms-authentication/)
+- [Amazon Kms Domain Security](https://apis.io/security/amazon-kms/amazon-kms-domain-security/)
+- [Amazon Kms Trust Center](https://apis.io/security/amazon-kms/amazon-kms-trust-center/)
+- [Amazon Kms Vulnerability Disclosure](https://apis.io/security/amazon-kms/amazon-kms-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Kms Plans Pricing](https://apis.io/plans/amazon-kms/amazon-kms-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Kms Rate Limits](https://apis.io/rate-limits/amazon-kms/amazon-kms-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Kms Finops](https://apis.io/finops/amazon-kms/amazon-kms-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aws.amazon.com/kms/)
 - [Documentation](https://docs.aws.amazon.com/kms/)
+- [Getting started](https://aws.amazon.com/kms/getting-started/)
 - [Pricing](https://aws.amazon.com/kms/pricing/)
-- [Getting Started](https://aws.amazon.com/kms/getting-started/)
-- [F A Q](https://aws.amazon.com/kms/faqs/)
-- [Privacy Policy](https://aws.amazon.com/privacy/)
-- [Sign Up](https://portal.aws.amazon.com/billing/signup)
-- [GitHub Organization](https://github.com/aws)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Spectral Rules](rules/amazon-kms-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-kms-vocabulary.yaml)
-- [Integrations](https://aws.amazon.com/marketplace)
+- [Support](https://aws.amazon.com/premiumsupport/)
+- [Blog](https://aws.amazon.com/blogs/security/category/security-identity-compliance/aws-key-management-service/)
+- [Compliance](https://aws.amazon.com/compliance/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://status.aws.amazon.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 62.0** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 58.5 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 79.8 |
+| Access clarity | 68.4 |
+
+**Agent readiness 19.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-kms/](https://apis.io/providers/amazon-kms/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon KMS: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-kms/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
