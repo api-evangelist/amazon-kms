@@ -1,0 +1,98 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/kms/pricing/
+sources:
+- https://aws.amazon.com/kms/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: per-call
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: true
+note: Most per-request rates appear as unrendered dynamic placeholders (e.g. {priceOf!kms/kms!API!request!...});
+  numeric request prices captured come from the stated pricing examples. Key storage flat $1/month per
+  key clearly stated.
+plan_count: 4
+currency: USD
+plans:
+- name: Key storage (KMS key)
+  price_text: $1/month
+  price: 1
+  currency: USD
+  period: month
+  unit: per KMS key (prorated hourly)
+  included_quota: Same price for symmetric, asymmetric, HMAC, multi-Region, imported key material, CloudHSM
+    or external key store keys
+  overage: First and second rotation of a key each add $1/month (prorated hourly); subsequent rotations
+    not billed
+- name: Key usage (API requests)
+  price_text: $0.03 / 10,000 requests
+  price: 0.03
+  currency: USD
+  period: per-use
+  unit: per 10,000 requests
+  included_quota: Free tier of 20,000 requests/month across all Regions
+  overage: Region-specific rates shown via dynamic price placeholders for RSA 2048, ECC and RSA GenerateDataKeyPair,
+    and other asymmetric requests
+- name: Signing requests (ECC 256 example)
+  price_text: $0.15 per 10,000 requests
+  price: 0.15
+  currency: USD
+  period: per-use
+  unit: per 10,000 requests
+- name: CloudHSM instance (pricing example)
+  price_text: $1.60 / HSM / hour
+  price: 1.6
+  currency: USD
+  period: per-use
+  unit: per HSM per hour
+rate_limit_statements:
+- AWS KMS provides a free tier of 20,000 requests/month calculated across all Regions that the service
+  is available.
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units:
+  - compute
+  - request
+  plans:
+  - name: Key storage (KMS key)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - other
+    periods:
+    - month
+  - name: Key usage (API requests)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - request
+    periods:
+    - other
+  - name: Signing requests (ECC 256 example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - request
+    periods:
+    - other
+  - name: CloudHSM instance (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
