@@ -56,7 +56,7 @@ rate_limit_statements:
 - AWS KMS provides a free tier of 20,000 requests/month calculated across all Regions that the service
   is available.
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
