@@ -2,6 +2,7 @@
 generated: '2026-10-28'
 method: searched
 source: https://aws.amazon.com/kms/pricing/
+name: Amazon KMS API Plans
 sources:
 - https://aws.amazon.com/kms/pricing/
 provenance:
@@ -56,7 +57,7 @@ rate_limit_statements:
 - AWS KMS provides a free tier of 20,000 requests/month calculated across all Regions that the service
   is available.
 x-canonical:
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid

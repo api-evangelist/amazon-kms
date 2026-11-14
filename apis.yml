@@ -1,4 +1,5 @@
 name: Amazon KMS
+
 deliveryModel:
   model: saas
   open_source: false
@@ -11,15 +12,20 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+
 specificationVersion: '0.23'
+
 segments:
 - Security
 - Encryption
-description: AWS Key Management Service (KMS) is a managed service that makes it easy to create and control
-  the cryptographic keys used to protect your data, integrated with other AWS services to simplify encryption
-  of data stored and managed in those services.
+
+description: AWS Key Management Service (KMS) is a managed service that makes it easy to create and control the cryptographic keys used to protect
+  your data, integrated with other AWS services to simplify encryption of data stored and managed in those services.
+
 url: https://aws.amazon.com/kms/
+
 type: Index
+
 accessModel:
   pricing: paid
   onboarding: unknown
@@ -27,14 +33,16 @@ accessModel:
   try_now: false
   public: false
   label: Paid
-  confidence: medium
+  confidence: high
   source:
   - plans
   - authentication
+  - rate-limits
   - security
-  generated: '2026-11-06'
+  generated: '2026-11-13'
   method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+
 tags:
 - Amazon Web Services
 - Cryptography
@@ -49,122 +57,61 @@ tags_raw:
 - Encryption
 - Key Management
 - Security
+
 created: '2024-01-15'
+
 modified: '2026-09-16'
-apis:
-- aid: amazon-kms:amazon-kms-cryptographic-operations-api
-  name: Amazon KMS Cryptographic Operations API
-  description: Encryption, decryption, and signing operations
-  humanURL: https://aws.amazon.com/kms/
-  baseURL: https://kms.amazonaws.com
-  tags:
-  - Cryptographic Operations
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-kms-cryptographic-operations-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
-  - type: Pricing
-    url: https://aws.amazon.com/kms/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kms/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kms/faqs/
-  - type: Features
-    url: https://aws.amazon.com/kms/features/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html
-  - type: JSONLD
-    url: json-ld/amazon-kms-context.jsonld
-  - type: JSONSchema
-    url: json-schema/amazon-kms-key-schema.json
-- aid: amazon-kms:amazon-kms-keys-api
-  name: Amazon KMS Keys API
-  description: KMS cryptographic key management
-  humanURL: https://aws.amazon.com/kms/
-  baseURL: https://kms.amazonaws.com
-  tags:
-  - Keys
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-kms-keys-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
-  - type: Pricing
-    url: https://aws.amazon.com/kms/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kms/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kms/faqs/
-  - type: Features
-    url: https://aws.amazon.com/kms/features/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html
-  - type: JSONLD
-    url: json-ld/amazon-kms-context.jsonld
-  - type: JSONSchema
-    url: json-schema/amazon-kms-key-schema.json
-- aid: amazon-kms:amazon-kms-alias-api
-  name: Amazon KMS Kms Alias API
-  description: The Kms Alias API from Amazon KMS — 3 operation(s) for kms alias.
-  humanURL: https://aws.amazon.com/kms/
-  baseURL: https://kms.amazonaws.com
-  tags:
-  - Kms Alias
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-kms-alias-api-openapi.yml
-- aid: amazon-kms:amazon-kms-custom-key-store-api
-  name: Amazon KMS Kms Custom Key Store API
-  description: The Kms Custom Key Store API from Amazon KMS — 6 operation(s) for kms custom key store.
-  humanURL: https://aws.amazon.com/kms/
-  baseURL: https://kms.amazonaws.com
-  tags:
-  - Kms Custom Key Store
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-kms-custom-key-store-api-openapi.yml
-- aid: amazon-kms:amazon-kms-grant-api
-  name: Amazon KMS Kms Grant API
-  description: The Kms Grant API from Amazon KMS — 4 operation(s) for kms grant.
-  humanURL: https://aws.amazon.com/kms/
-  baseURL: https://kms.amazonaws.com
-  tags:
-  - Kms Grant
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-kms-grant-api-openapi.yml
-- aid: amazon-kms:amazon-kms-key-policy-api
-  name: Amazon KMS Kms Key Policy API
-  description: The Kms Key Policy API from Amazon KMS — 3 operation(s) for kms key policy.
-  humanURL: https://aws.amazon.com/kms/
-  baseURL: https://kms.amazonaws.com
-  tags:
-  - Kms Key Policy
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-kms-key-policy-api-openapi.yml
-- aid: amazon-kms:amazon-kms-key-rotation-api
-  name: Amazon KMS Kms Key Rotation API
-  description: The Kms Key Rotation API from Amazon KMS — 3 operation(s) for kms key rotation.
-  humanURL: https://aws.amazon.com/kms/
-  baseURL: https://kms.amazonaws.com
-  tags:
-  - Kms Key Rotation
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-kms-key-rotation-api-openapi.yml
-- aid: amazon-kms:amazon-kms-operations-api
-  name: Amazon KMS Kms Operations API
-  description: The Kms Operations API from Amazon KMS — 21 operation(s) for kms operations.
-  humanURL: https://aws.amazon.com/kms/
-  baseURL: https://kms.amazonaws.com
-  tags:
-  - Kms Operations
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-kms-operations-api-openapi.yml
+
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+  url: https://apievangelist.com
+
 common:
+- type: Spectral
+  url: rules/amazon-kms-spectral-rules.yml
+- type: Spectral
+  url: rules/amazon-kms-rules.yml
+- type: Spectral
+  url: rules/amazon-kms-jsonschema-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-kms-vocabulary.yml
+- type: DataModel
+  url: data-model/amazon-kms-data-model.yml
+- type: CLI
+  url: cli/amazon-kms-cli.yml
+- type: ChangeLog
+  url: changelog/amazon-kms-changelog.yml
+- type: Conventions
+  url: conventions/amazon-kms-conventions.yml
+- type: Lifecycle
+  url: lifecycle/amazon-kms-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/amazon-kms-error-codes.yml
+- type: ErrorCatalog
+  url: errors/amazon-kms-problem-types.yml
+- type: Conformance
+  url: conformance/amazon-kms-conformance.yml
+- type: LLMsTxt
+  url: llms/amazon-kms-llms.txt
+- type: SecurityTxt
+  url: well-known/amazon-kms-security.txt
+- type: WellKnown
+  url: well-known/amazon-kms-well-known.yml
+- type: Hosts
+  url: hosts/amazon-kms-hosts.yml
+- type: Vendors
+  url: vendors/amazon-kms-vendors.yml
+- type: Packages
+  url: packages/amazon-kms-packages.yml
+- type: SignUp
+  url: https://signin.aws.amazon.com/signup?request_type=builderId
+- type: Security
+  url: https://aws.amazon.com/security/?nc2=h_dsc_aa_sec
+- type: Newsroom
+  url: https://aws.amazon.com/media/?nc2=h_sol_ind_med
+- type: APIReference
+  url: https://docs.aws.amazon.com/cli/latest/reference/kms/index.html
 - type: Plans
   url: plans/amazon-kms-plans-pricing.yml
 - type: RateLimits
@@ -247,8 +194,7 @@ common:
 - type: Features
   data:
   - name: Centralized Key Management
-    description: Create, import, rotate, disable, delete, and audit usage of cryptographic keys from a
-      central location.
+    description: Create, import, rotate, disable, delete, and audit usage of cryptographic keys from a central location.
   - name: Hardware Security Modules
     description: Keys are protected by FIPS 140-2 validated hardware security modules (HSMs).
   - name: Automatic Key Rotation
@@ -287,6 +233,187 @@ common:
   url: vocabulary/amazon-kms-vocabulary.yaml
 - type: Integrations
   url: https://aws.amazon.com/marketplace
+- type: UsageTerms
+  url: terms/amazon-kms-terms-of-service.yml
+- type: DataProcessing
+  url: privacy/amazon-kms-privacy-policy.yml
+- type: Attestations
+  url: compliance/amazon-kms-compliance.yml
+
+apis:
+- aid: amazon-kms:amazon-kms-cryptographic-operations-api
+  name: Amazon KMS Cryptographic Operations API
+  description: Encryption, decryption, and signing operations
+  humanURL: https://aws.amazon.com/kms/
+  baseURL: https://kms.amazonaws.com
+  tags:
+  - Cryptographic Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kms-cryptographic-operations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
+  - type: Pricing
+    url: https://aws.amazon.com/kms/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kms/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kms/faqs/
+  - type: Features
+    url: https://aws.amazon.com/kms/features/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html
+  - type: JSONLD
+    url: json-ld/amazon-kms-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-kms-key-schema.json
+- aid: amazon-kms:amazon-kms-keys-api
+  name: Amazon KMS Keys API
+  description: KMS cryptographic key management
+  humanURL: https://aws.amazon.com/kms/
+  baseURL: https://kms.amazonaws.com
+  tags:
+  - Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kms-keys-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kms/latest/developerguide/overview.html
+  - type: Pricing
+    url: https://aws.amazon.com/kms/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kms/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kms/faqs/
+  - type: Features
+    url: https://aws.amazon.com/kms/features/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html
+  - type: JSONLD
+    url: json-ld/amazon-kms-context.jsonld
+  - type: JSONSchema
+    url: json-schema/amazon-kms-key-schema.json
+- aid: amazon-kms:amazon-kms-alias-api
+  name: Amazon KMS Kms Alias API
+  description: The Kms Alias API from Amazon KMS — 3 operation(s) for kms alias.
+  humanURL: https://aws.amazon.com/kms/
+  baseURL: https://kms.amazonaws.com
+  tags:
+  - Kms Alias
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kms-alias-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kms-create-alias-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-update-alias-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-delete-alias-request-schema.json
+- aid: amazon-kms:amazon-kms-custom-key-store-api
+  name: Amazon KMS Kms Custom Key Store API
+  description: The Kms Custom Key Store API from Amazon KMS — 6 operation(s) for kms custom key store.
+  humanURL: https://aws.amazon.com/kms/
+  baseURL: https://kms.amazonaws.com
+  tags:
+  - Kms Custom Key Store
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kms-custom-key-store-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kms-create-custom-key-store-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-update-custom-key-store-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-describe-custom-key-stores-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-describe-custom-key-stores-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-connect-custom-key-store-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-disconnect-custom-key-store-request-schema.json
+- aid: amazon-kms:amazon-kms-grant-api
+  name: Amazon KMS Kms Grant API
+  description: The Kms Grant API from Amazon KMS — 4 operation(s) for kms grant.
+  humanURL: https://aws.amazon.com/kms/
+  baseURL: https://kms.amazonaws.com
+  tags:
+  - Kms Grant
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kms-grant-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kms-create-grant-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-list-grants-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-retire-grant-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-revoke-grant-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-list-grants-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-create-grant-response-schema.json
+- aid: amazon-kms:amazon-kms-key-policy-api
+  name: Amazon KMS Kms Key Policy API
+  description: The Kms Key Policy API from Amazon KMS — 3 operation(s) for kms key policy.
+  humanURL: https://aws.amazon.com/kms/
+  baseURL: https://kms.amazonaws.com
+  tags:
+  - Kms Key Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kms-key-policy-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kms-put-key-policy-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-list-key-policies-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-list-key-policies-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-get-key-policy-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-get-key-policy-response-schema.json
+- aid: amazon-kms:amazon-kms-key-rotation-api
+  name: Amazon KMS Kms Key Rotation API
+  description: The Kms Key Rotation API from Amazon KMS — 3 operation(s) for kms key rotation.
+  humanURL: https://aws.amazon.com/kms/
+  baseURL: https://kms.amazonaws.com
+  tags:
+  - Kms Key Rotation
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kms-key-rotation-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kms-list-key-rotations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-enable-key-rotation-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-list-key-rotations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-disable-key-rotation-request-schema.json
+- aid: amazon-kms:amazon-kms-operations-api
+  name: Amazon KMS Kms Operations API
+  description: The Kms Operations API from Amazon KMS — 21 operation(s) for kms operations.
+  humanURL: https://aws.amazon.com/kms/
+  baseURL: https://kms.amazonaws.com
+  tags:
+  - Kms Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kms-operations-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kms-re-encrypt-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-import-key-material-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-decrypt-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-get-public-key-response-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-verify-request-schema.json
+  - type: JSONSchema
+    url: json-schema/amazon-kms-sign-request-schema.json
+
 integrations:
 - name: Sign in
 - name: Agent Mode
@@ -297,10 +424,14 @@ integrations:
 - name: Become a Channel Partner
 - name: Sell in AWS Marketplace
 - name: Manage Your Account
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-  url: https://apievangelist.com
+
 include: []
+
 x-parent: amazon-web-services
+
 x-relationship: product
+x-enrichment:
+  date: '2026-11-11'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v6

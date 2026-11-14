@@ -35,6 +35,15 @@ artifacts:
   capabilities/amazon-kms-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  changelog/amazon-kms-changelog.yml:
+    method: searched
+    evidence: declared in the artifact
+  cli/amazon-kms-cli.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/amazon-kms-cryptographic-operations-api.opencollection.json:
     method: derived
     evidence: openapi/amazon-kms-cryptographic-operations-api
@@ -53,6 +62,24 @@ artifacts:
   collections/amazon-kms.postman_collection.json:
     method: derived
     evidence: openapi/amazon-kms
+  compliance/amazon-kms-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
+  conformance/amazon-kms-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-kms-conventions.yml:
+    method: searched
+    evidence: declared in the artifact
+  data-model/amazon-kms-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  errors/amazon-kms-error-codes.yml:
+    method: searched
+    evidence: declared in the artifact
+  errors/amazon-kms-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/amazon-kms-key-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -62,6 +89,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-kms-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -71,7 +101,97 @@ artifacts:
   json-ld/amazon-kms-context.jsonld:
     method: unknown
     evidence: no authorship recorded
+  json-schema/amazon-kms-connect-custom-key-store-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-create-alias-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-create-custom-key-store-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-create-grant-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-create-grant-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-decrypt-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-delete-alias-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-describe-custom-key-stores-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-describe-custom-key-stores-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-disable-key-rotation-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-disconnect-custom-key-store-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-enable-key-rotation-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-get-key-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-get-key-policy-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-get-public-key-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-import-key-material-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/amazon-kms-key-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-list-grants-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-list-grants-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-list-key-policies-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-list-key-policies-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-list-key-rotations-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-list-key-rotations-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-put-key-policy-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-re-encrypt-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-retire-grant-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-revoke-grant-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-sign-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-update-alias-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-update-custom-key-store-request-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-kms-verify-request-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-structure/amazon-kms-key-structure.json:
@@ -80,7 +200,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -149,10 +269,21 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-kms-openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-kms-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-kms-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-kms-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-kms-mcp.yml:
+    method: derived
+    evidence: declared in the artifact
   openapi/amazon-kms-alias-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -177,6 +308,12 @@ artifacts:
   openapi/amazon-kms-operations-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  packages/amazon-kms-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-kms-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/amazon-kms-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -186,10 +323,16 @@ artifacts:
   postman/amazon-kms.postman_collection.json:
     method: derived
     evidence: openapi/amazon-kms
+  privacy/amazon-kms-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/amazon-kms-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rules/amazon-kms-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-kms-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-kms-spectral-rules.yml:
@@ -208,8 +351,27 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   smithy/kms-2014-11-01.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/kms/service/2014-11-01/kms-2014-11-01.json
+      (sha256 956200a78952, fetched 2026-11-11T21:11:28+00:00)
+  terms/amazon-kms-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-kms-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-kms-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-kms-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-kms-midway-auth-openid-configuration.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-kms-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-kms-well-known.yml:
     method: unknown
     evidence: no authorship recorded
