@@ -200,7 +200,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-06T143934.yml:
+  kin/checks-2026-11-13T214628.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -272,6 +272,9 @@ artifacts:
   kin/score-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-13T214628.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/amazon-kms-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
@@ -308,6 +311,30 @@ artifacts:
   openapi/amazon-kms-operations-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  overlays/amazon-kms-alias-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-kms-cryptographic-operations-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-kms-custom-key-store-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-kms-grant-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-kms-key-policy-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-kms-key-rotation-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-kms-keys-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/amazon-kms-operations-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   packages/amazon-kms-packages.yml:
     method: searched
     evidence: declared in the artifact
@@ -346,9 +373,6 @@ artifacts:
     evidence: declared in the artifact
   security/amazon-kms-vulnerability-disclosure.yml:
     method: searched
-    evidence: declared in the artifact
-  sla/amazon-kms-sla.yml:
-    method: generated
     evidence: declared in the artifact
   smithy/kms-2014-11-01.json:
     method: harvested

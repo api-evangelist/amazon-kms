@@ -1,3 +1,4 @@
+aid: amazon-kms
 name: Amazon KMS
 
 deliveryModel:
@@ -39,7 +40,7 @@ accessModel:
   - authentication
   - rate-limits
   - security
-  generated: '2026-11-13'
+  generated: '2026-11-20'
   method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 
